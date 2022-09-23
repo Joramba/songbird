@@ -106,6 +106,7 @@
 
 body {
     min-width: 1600px;
+    margin: 0 auto;
 }
 
 .active {
@@ -113,6 +114,11 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.container {
+    width: 1600px;
+    margin: 0 auto;
 }
 
 // header section start
@@ -229,3 +235,57 @@ body {
 }
 
 // header section end 
+
+// favorite section start
+
+.favorite {
+    width: 1600px;
+    background: url("../../assets/images/giant_panda.jpg") no-repeat center;
+    background-size: cover;
+    height: 700px;
+    margin: 0 auto;
+
+    &_circle {
+        position: absolute;
+        width: 465px;
+        height: 465px;
+        border-radius: 50%;
+        margin: 12px 328px auto 807px;
+        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+
+        &-text {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106.496px;
+            line-height: 75%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            position: absolute;
+            left: 73px;
+            top: 74px;
+        }
+    }
+
+    &_button {
+        position: absolute;
+        left: calc(50% - 298px/2 + 332px);
+        top: 626px;
+        text-decoration: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        width: 292px;
+        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+        border-radius: 25px;
+        padding: 16px 5px;
+    }
+}
+
+// favorite section end
