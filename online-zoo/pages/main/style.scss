@@ -360,6 +360,8 @@ body {
     margin: 24px 21px;
 }
 
+
+
 .pets {
     display: flex;
     flex-direction: column;
@@ -380,7 +382,13 @@ body {
         background: #FFFFFF;
         border: 0.3px solid #FFFFFF;
         border-radius: 50%;
+        transition: 1s;
         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    }
+
+    &_arrow:hover {
+        transition: 1s;
+        transform: scale(1.2);
     }
 
     &_container {
@@ -396,16 +404,44 @@ body {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         border: 1px solid #FA6F32;
         border-radius: 5px;
+        width: 366px;
+        height: 426px;
 
+        &-img {
+            width: 354px;
+            height: 351px;
+            z-index: 2;
+            transition: 1s;
+        }
+
+        &-img:hover {
+            width: 364px;
+            height: 361px;
+            transition: 1s;
+        }
+
+        &-img:hover+&-info {
+            transform: translate(0, 0px);
+            transition: 1s;
+            background-color: #5c83abb5;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
 
         &-info {
             display: flex;
             flex-wrap: nowrap;
             flex-direction: row;
-            margin: 8px 12px 14px 16px;
+            padding: 8px 12px 14px 16px;
             justify-content: space-between;
+            transition: 1s;
+            transform: translate(0, -50px);
+            z-index: 1;
+            width: 366px;
         }
 
         &-text {
@@ -413,6 +449,7 @@ body {
             font-size: 15px;
             line-height: 120%;
             color: #000000;
+
 
             & h4 {
                 font-weight: 500;
