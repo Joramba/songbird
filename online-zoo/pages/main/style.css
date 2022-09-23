@@ -49,13 +49,20 @@
   box-sizing: border-box; }
 
 body {
-  min-width: 1600px; }
+  min-width: 1600px;
+  margin: 0 auto;
+  font-family: 'Roboto';
+  font-style: normal; }
 
 .active {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; }
+
+.container {
+  width: 1600px;
+  margin: 0 auto; }
 
 .header {
   display: flex;
@@ -90,8 +97,6 @@ body {
       top: 22px; }
     .header_logo h1 {
       margin: 0;
-      font-family: 'Roboto';
-      font-style: normal;
       font-weight: 400;
       font-size: 19.0145px;
       line-height: 120%;
@@ -108,8 +113,6 @@ body {
       gap: 58px; }
     .header_nav-item {
       list-style: none;
-      font-family: 'Roboto';
-      font-style: normal;
       font-weight: 500;
       font-size: 16px;
       line-height: 140%;
@@ -123,8 +126,6 @@ body {
       -webkit-text-fill-color: transparent;
       background-clip: text; }
   .header_author {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
@@ -138,5 +139,186 @@ body {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text; }
+
+.favorite {
+  width: 1600px;
+  background: url("../../assets/images/giant_panda.jpg") no-repeat center;
+  background-size: cover;
+  height: 700px;
+  margin: 0 auto; }
+  .favorite_circle {
+    position: absolute;
+    width: 465px;
+    height: 465px;
+    border-radius: 50%;
+    margin: 12px 328px auto 807px;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%); }
+    .favorite_circle-text {
+      font-weight: 700;
+      font-size: 106.496px;
+      line-height: 75%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      position: absolute;
+      left: 73px;
+      top: 74px; }
+  .favorite_button {
+    position: absolute;
+    left: calc(50% - 298px/2 + 332px);
+    top: 626px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    width: 292px;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    border-radius: 25px;
+    padding: 16px 5px; }
+  .favorite_button:hover {
+    color: #ffffffb5; }
+
+.backstage {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: relative; }
+  .backstage_container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 87px;
+    margin: 140px auto 174px;
+    width: 1160px; }
+  .backstage_text {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column; }
+    .backstage_text h2 {
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 120%;
+      color: #333B41;
+      margin-bottom: 20px; }
+    .backstage_text-first {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: #333B41;
+      margin-bottom: 54px; }
+    .backstage_text h3 {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+      color: #333B41;
+      margin-bottom: 34px; }
+    .backstage_text-second {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: #333B41; }
+  .backstage_flower {
+    position: absolute;
+    top: 16px;
+    right: 0; }
+
+.arrow_left {
+  margin: 24px 21px;
+  transform: rotate(-180deg); }
+
+.arrow_right {
+  margin: 24px 21px; }
+
+.pets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; }
+  .pets_info {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px; }
+  .pets_arrow {
+    width: 62px;
+    height: 62px;
+    background: #FFFFFF;
+    border: 0.3px solid #FFFFFF;
+    border-radius: 50%;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%); }
+  .pets_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px 27px;
+    margin: 0 auto 86px;
+    width: 1160px; }
+  .pets_card {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    border: 1px solid #FA6F32;
+    border-radius: 5px; }
+    .pets_card-info {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      margin: 8px 12px 14px 16px;
+      justify-content: space-between; }
+    .pets_card-text {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 120%;
+      color: #000000; }
+      .pets_card-text h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: #000000; }
+  .pets_button {
+    display: flex;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #FE9013;
+    border-radius: 25px;
+    width: 298px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    padding: 16px 5px; }
+  .pets_button:hover {
+    color: #ffffffb5; }
+  .pets_strelitzial {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .pets_palm {
+    position: absolute;
+    left: 0;
+    bottom: 0; }
+
+.pick_feed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  opacity: 0.9; }
+  .pick_feed-container {
+    margin: 69px 220px 100px;
+    width: 1160px;
+    height: 835px;
+    background: rgba(253, 253, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px; }
 
 /*# sourceMappingURL=style.css.map */
