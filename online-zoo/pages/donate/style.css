@@ -139,4 +139,155 @@ body {
       -webkit-text-fill-color: transparent;
       background-clip: text; }
 
+.main {
+  width: 1600px;
+  background: url("../../assets/images/giant_panda.jpg") no-repeat center;
+  background-size: cover;
+  margin: 0 auto;
+  height: 390px; }
+
+.pick_feed {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  height: 1482px; }
+  .pick_feed-title {
+    display: flex;
+    flex-wrap: nowrap;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 130%;
+    color: #FFFFFF;
+    margin-bottom: 10px; }
+  .pick_feed-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    width: 1160px;
+    padding-top: 40px; }
+    .pick_feed-container p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 140%;
+      color: #FFFFFF;
+      margin-bottom: 40px; }
+  .pick_feed-donation {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 130%;
+    color: #FE9013;
+    margin-bottom: 60px; }
+  .pick_feed-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    padding: 40px 92px 62px; }
+    .pick_feed-box-title {
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 120%;
+      text-align: center;
+      color: #FE9013; }
+    .pick_feed-box-text {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 120%;
+      color: #333B41; }
+
+.footer {
+  background: #111115; }
+  .footer_container {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 40px 0 50px 0; }
+  .footer_sub {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between; }
+  .footer_submit h3 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: #FFFFFF;
+    margin-bottom: 14px; }
+  .footer_submit-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px; }
+    .footer_submit-form input {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: #BDBDBD;
+      padding: 10px 7px;
+      background: transparent;
+      border-radius: 2px;
+      border: 0.7px solid #F9804B; }
+    .footer_submit-form button {
+      padding: 10px 39px;
+      background: #F1F3F2;
+      color: #D31414;
+      border: 1px solid #D31414;
+      border-radius: 5px; }
+  .footer_logo {
+    margin-bottom: 75px; }
+  .footer_button {
+    display: flex;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    border-radius: 5px;
+    width: 298px;
+    align-self: flex-start;
+    justify-content: center;
+    padding: 16px 5px;
+    margin-bottom: 44px; }
+    .footer_button:hover {
+      background: #E47209; }
+  .footer_social {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px; }
+    .footer_social-item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 12px;
+      text-decoration: none; }
+      .footer_social-item img {
+        background: rgba(196, 196, 196, 0.5);
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        padding: 5px; }
+      .footer_social-item div {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #FFFFFF; }
+  .footer_info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end; }
+  .footer_author {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF; }
+
 /*# sourceMappingURL=style.css.map */
