@@ -556,6 +556,7 @@ body {
                 color: #000000;
                 border: 1px solid #000000;
                 border-radius: 5px;
+                cursor: pointer;
             }
 
             & input {
@@ -566,14 +567,23 @@ body {
                 padding: 10px 7px;
                 background: transparent;
                 border-radius: 2px;
-                border: 0.7px solid #F9804B;
+
+                border: 0.7px solid #4B9200;
 
                 &:invalid {
+                    .footer_submit-form button {
+                        border-color: #D31414;
+                    }
+
                     border-color: #D31414;
                 }
 
-                &:valid {
-                    // border-color: #4B9200;
+                &:active {
+                    border-color: #F9804B;
+                }
+
+                &:focus {
+                    border-color: #4B9200;
                 }
             }
         }
@@ -633,6 +643,17 @@ body {
                 font-size: 16px;
                 line-height: 140%;
                 color: #FFFFFF;
+            }
+
+            &:hover,
+            &:active {
+                & img {
+                    background: #4B9200;
+                }
+
+                & div {
+                    color: #4B9200;
+                }
             }
         }
     }
