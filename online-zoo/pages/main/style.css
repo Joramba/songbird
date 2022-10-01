@@ -243,7 +243,7 @@ body {
         gap: 31px; }
       .backstage_container img {
         width: 455px;
-        height: 408px;
+        height: 100%;
         backdrop-filter: blur(2px); } }
   .backstage_text {
     display: flex;
@@ -325,7 +325,8 @@ body {
     flex-direction: column;
     gap: 20px;
     margin: 0 auto 86px;
-    width: 1160px; }
+    width: 1160px;
+    position: relative; }
     .pets_container-cards {
       display: flex;
       flex-direction: row;
@@ -341,7 +342,7 @@ body {
     flex-flow: row nowrap;
     position: absolute;
     top: 400px;
-    left: 138px; }
+    left: -84px; }
     @media screen and (max-width: 1000px) {
       .pets_arrows {
         position: static;
