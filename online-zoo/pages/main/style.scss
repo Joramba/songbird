@@ -286,7 +286,7 @@ body {
 
             & img {
                 width: 455px;
-                height: 408px;
+                height: 100%;
                 backdrop-filter: blur(2px);
             }
         }
@@ -357,6 +357,8 @@ body {
     margin: 24px 21px;
 }
 
+.left {}
+
 .right {
     position: absolute;
     left: 1260px;
@@ -395,7 +397,6 @@ body {
         border: 0.3px solid #FFFFFF;
         border-radius: 50%;
         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
-
     }
 
     &_arrow:hover {
@@ -410,6 +411,7 @@ body {
         gap: 20px;
         margin: 0 auto 86px;
         width: 1160px;
+        position: relative;
 
         &-cards {
             display: flex;
@@ -432,7 +434,7 @@ body {
         flex-flow: row nowrap;
         position: absolute;
         top: 400px;
-        left: 138px;
+        left: -84px;
 
         @media screen and (max-width:$desctop_small) {
             & {
