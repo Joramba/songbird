@@ -51,11 +51,64 @@
                 <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank">Designed by
                     ©</a>
             </div>
+            <div class="header_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
+
+    <div class="burger">
+        <div class="burger_container">
+            <div class="header_logo burger_logo">
+                <a href="../../pages/main/index.html">
+                    <img src="../../assets/icons/bamboo.svg" alt="Bamboo">
+                    <h1>PetStory online</h1>
+                </a>
+            </div>
+            <nav class="header_nav burger_nav">
+                <ul class="header_nav-list burger_nav-list">
+                    <li class="header_nav-item">
+                        <a href="../../pages/main/index.html" class="header_nav-link burger_nav-link">
+                            About
+                        </a>
+                    </li>
+                    <li class="header_nav-item burger_nav-item">
+                        <a href="#!" class="header_nav-link burger_nav-link">
+                            Map
+                        </a>
+                    </li>
+                    <li class="header_nav-item burger_nav-item">
+                        <a href="#!" class="header_nav-link burger_nav-link">
+                            Zoos
+                        </a>
+                    </li>
+                    <li class="header_nav-item burger_nav-item">
+                        <a href="../../pages/donate/index.html" class="header_nav-link burger_nav-link active">
+                            Donate
+                        </a>
+                    </li>
+                    <li class="header_nav-item burger_nav-item">
+                        <a href="#!" class="header_nav-link burger_nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header_author burger_author">
+                <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" target="_blank">Designed by
+                    ©</a>
+            </div>
+        </div>
+        <div class="burger_close">
+            <span class="close">&times;</span>
+        </div>
+    </div>
     <section class="main">
 
     </section>
+
     <section class="pick_feed">
         <div class="pick_feed-container">
             <h3 class="pick_feed-title">THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h3>
@@ -155,25 +208,44 @@
         </div>
     </section>
 
+
     <footer class="footer">
         <div class="footer_container">
-            <div class="footer_sub">
-                <div class="header_logo footer_logo">
-                    <a href="../../pages/main/index.html">
-                        <img src="../../assets/icons/bamboo.svg" alt="Bamboo">
-                        <h1>PetStory online</h1>
+            <div class="footer_start">
+                <div class="footer_sub">
+                    <div class="header_logo footer_logo">
+                        <a href="../../pages/main/index.html">
+                            <img src="../../assets/icons/bamboo.svg" alt="Bamboo">
+                            <h1>PetStory online</h1>
+                        </a>
+                    </div>
+                    <div class="footer_submit">
+                        <form action="">
+                            <h3>Subscribe to our news</h3>
+                            <div class="footer_submit-form">
+                                <input type="email" placeholder="Enter your email">
+                                <button>Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer_start-social">
+                    <a href="https://www.facebook.com/" class="footer_social-item" target="_blank">
+                        <img src="../../assets/icons/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://twitter.com/" class="footer_social-item" target="_blank">
+                        <img src="../../assets/icons/twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="https://www.instagram.com/" class="footer_social-item" target="_blank">
+                        <img src="../../assets/icons/inst.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/" class="footer_social-item" target="_blank">
+                        <img src="../../assets/icons/youtube.svg" alt="YouTube">
                     </a>
                 </div>
-                <div class="footer_submit">
-                    <form action="">
-                        <h3>Subscribe to our news</h3>
-                        <div class="footer_submit-form">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button>Submit</button>
-                        </div>
-                    </form>
-                </div>
             </div>
+
+
             <a href="../../pages/donate/index.html" class="testimonials-button footer_button">donate for
                 volunteers</a>
             <div class="footer_info">
@@ -196,8 +268,8 @@
                     </a>
                 </div>
 
-                <nav class="header_nav">
-                    <ul class="header_nav-list">
+                <nav class="header_nav footer_nav">
+                    <ul class="header_nav-list footer_nav-list">
                         <li class="header_nav-item">
                             <a href="../../pages/main/index.html" class="header_nav-link active">
                                 About
@@ -215,7 +287,7 @@
                         </li>
                         <li class="header_nav-item">
                             <a href="#!" class="header_nav-link">
-                                Contact
+                                Contact us
                             </a>
                         </li>
                     </ul>
@@ -233,5 +305,6 @@
         </div>
     </footer>
 </body>
+<script src="script.js"></script>
 
 </html>
