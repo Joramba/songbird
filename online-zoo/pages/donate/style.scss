@@ -66,6 +66,12 @@ body {
                 margin: 0 20px;
             }
         }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                min-width: 300px;
+            }
+        }
     }
 
     &_logo {
@@ -235,6 +241,12 @@ body {
         }
     }
 
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            max-width: 320px;
+        }
+    }
+
 
 }
 
@@ -247,11 +259,25 @@ body {
     width: 100%;
     background-color: #FFFFFF;
 
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            width: 320px;
+            justify-content: space-between;
+        }
+    }
+
+
     &_container {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         margin: 10px auto 40px 10px;
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                margin: 10px 20px 40px 10px;
+            }
+        }
     }
 
     &_nav {
@@ -303,11 +329,6 @@ body {
         height: 30px;
     }
 
-    // @media screen and (max-width:$tablet) {
-    //     & {
-    //         // display: block;
-    //     }
-    // }
 }
 
 .close {
@@ -321,6 +342,8 @@ body {
     flex-direction: row;
     position: fixed;
 }
+
+
 
 
 // header section end 
@@ -344,6 +367,14 @@ body {
         & {
             max-width: $tablet;
             height: 335px;
+        }
+    }
+
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            max-width: $mobile_phone;
+            height: 187px + 34px;
+
         }
     }
 }
@@ -393,6 +424,12 @@ body {
         }
     }
 
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            min-width: $mobile_phone;
+        }
+    }
+
     &-title {
         display: flex;
         flex-wrap: nowrap;
@@ -438,6 +475,14 @@ body {
             }
         }
 
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                max-width: 300px;
+                padding-top: 30px;
+            }
+        }
+
+
 
         & p {
             font-weight: 500;
@@ -472,6 +517,13 @@ body {
                 margin-bottom: 30px;
             }
         }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                font-size: 24px;
+            }
+        }
+
     }
 
     &-box {
@@ -497,6 +549,13 @@ body {
             }
         }
 
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                padding: 20px 0;
+            }
+        }
+
+
         &-title {
             font-weight: 400;
             font-size: 48px;
@@ -504,6 +563,13 @@ body {
             text-align: center;
             color: #FE9013;
             margin-bottom: 20px;
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    font-size: 24px;
+                }
+            }
+
         }
 
         &-text {
@@ -527,6 +593,14 @@ body {
                     margin-bottom: 50px;
                 }
             }
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+            }
+
         }
 
         &-pandas {
@@ -543,6 +617,15 @@ body {
                     margin-bottom: 41px;
                 }
             }
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    width: 300px;
+                    height: 138px;
+                    margin-bottom: 4px;
+                }
+            }
+
         }
 
         &-info {
@@ -550,6 +633,12 @@ body {
             flex-direction: column;
             flex-wrap: nowrap;
             margin-right: 11px;
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    margin: 23px 6px 0 0;
+                }
+            }
 
             .number {
                 font-weight: 500;
@@ -559,6 +648,13 @@ body {
                 text-transform: uppercase;
                 color: #000000;
                 margin-bottom: 11px;
+
+                @media screen and (max-width:$mobile_phone) {
+                    & {
+                        font-size: 40.6015px;
+                        margin-bottom: 6px;
+                    }
+                }
             }
 
             .text {
@@ -567,11 +663,30 @@ body {
                 line-height: 140%;
                 text-align: center;
                 color: #333B41;
+                white-space: nowrap;
+
+
+                @media screen and (max-width:$mobile_phone) {
+                    & {
+                        white-space: inherit;
+                        font-size: 9px;
+                        padding-left: 1px;
+                    }
+                }
             }
         }
 
         &-xicon {
             margin-right: 64px;
+
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    width: 8px;
+                    height: 8px;
+                    margin-right: 36px;
+                }
+            }
         }
     }
 
@@ -582,6 +697,29 @@ body {
         @media screen and (max-width:$tablet) {
             & {
                 margin-left: -476px;
+            }
+        }
+
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                margin-left: -225px;
+                margin-bottom: 49px;
+            }
+        }
+
+        &-amount {
+            @media screen and (max-width:$tablet) {
+                & {
+                    margin-left: 485px;
+                }
+            }
+
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    margin-left: 225px;
+                }
             }
         }
 
@@ -609,6 +747,15 @@ body {
                 }
             }
 
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    margin-top: 8.5px;
+                    gap: 40px;
+                    height: 13.5px;
+                }
+            }
+
+
             &-container {
                 display: flex;
                 flex-flow: column nowrap;
@@ -616,10 +763,27 @@ body {
                 margin-top: 56px;
                 position: relative;
 
+
+                @media screen and (max-width:$mobile_phone) {
+                    & {
+                        margin-top: 29px;
+                    }
+                }
+
                 & img {
                     display: none;
                     position: absolute;
                     top: -15px;
+
+
+                    @media screen and (max-width:$mobile_phone) {
+                        & {
+                            top: -7px;
+                            left: 4px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
                 }
             }
 
@@ -639,6 +803,15 @@ body {
                 background: #FFEE2E;
                 border-radius: 50%;
                 margin-bottom: 21px;
+
+
+                @media screen and (max-width:$mobile_phone) {
+                    & {
+                        width: 5px;
+                        height: 5px;
+                        margin-bottom: 11px;
+                    }
+                }
             }
 
             &-amount {
@@ -647,6 +820,13 @@ body {
                 line-height: 140%;
                 text-transform: uppercase;
                 color: #333B41;
+
+
+                @media screen and (max-width:$mobile_phone) {
+                    & {
+                        font-size: 13px;
+                    }
+                }
             }
         }
     }
@@ -678,6 +858,12 @@ body {
                 justify-content: flex-start;
                 gap: 38px;
                 margin-bottom: 31px;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                margin-bottom: 25px;
             }
         }
 
@@ -715,6 +901,13 @@ body {
             line-height: 140%;
             color: #333B41;
             margin-bottom: 30px;
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    margin-bottom: 28px;
+                }
+            }
+
 
             & div {
                 display: flex;
@@ -766,6 +959,25 @@ body {
 
     &-share {
         color: #333B41;
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                display: flex;
+                flex-wrap: nowrap;
+                width: 301px;
+                font-size: 16px;
+            }
+        }
+
+    }
+}
+
+.panda {
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            width: 160.15px;
+            height: 138.72px;
+        }
     }
 }
 
@@ -788,6 +1000,13 @@ body {
         }
     }
 
+    @media screen and (max-width:$mobile_phone) {
+        & {
+            min-width: $mobile_phone;
+            overflow: hidden;
+        }
+    }
+
     &_container {
         width: 1160px;
         margin: 0 auto;
@@ -807,6 +1026,13 @@ body {
 
             }
         }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                max-width: 300px;
+                padding-top: 20px;
+            }
+        }
     }
 
     &_start {
@@ -817,6 +1043,12 @@ body {
         @media screen and (max-width:$tablet) {
             & {
                 display: flex;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                flex-direction: column;
             }
         }
 
@@ -833,6 +1065,16 @@ body {
                     display: flex;
                 }
             }
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    flex-direction: row;
+                    position: relative;
+                    width: 320px;
+                    justify-content: center;
+                    margin-bottom: 30px;
+                }
+            }
         }
     }
 
@@ -841,6 +1083,12 @@ body {
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-between;
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                width: 320px;
+            }
+        }
     }
 
     &_submit {
@@ -891,17 +1139,45 @@ body {
         display: block;
         margin-left: 0;
 
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                align-self: flex-start;
+                margin-left: 6px;
+            }
+        }
+
         &-list {
             gap: 39px;
+
+            @media screen and (max-width:$mobile_phone) {
+                & {
+                    flex-wrap: nowrap;
+                    gap: 30px;
+                }
+            }
         }
     }
 
     &_logo {
         margin-bottom: 75px;
 
+
+
         @media screen and (max-width:$tablet) {
             & {
                 margin-bottom: 32px;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            & img {
+                left: 162px;
+                top: 0px;
             }
         }
     }
@@ -912,6 +1188,13 @@ body {
         @media screen and (max-width:$desctop_small) {
             & {
                 margin: 0 0 71px 0;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                margin-bottom: 30px;
+                width: 298px;
             }
         }
     }
@@ -969,6 +1252,12 @@ body {
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: flex-end;
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                flex-direction: column-reverse;
+            }
+        }
     }
 
     &_author {
@@ -979,6 +1268,14 @@ body {
         font-size: 16px;
         line-height: 130%;
         color: #FFFFFF;
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                font-size: 15px;
+                gap: 13px;
+                margin-bottom: 30px;
+            }
+        }
 
         &-name {
             font-weight: 100;
