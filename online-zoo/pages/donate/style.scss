@@ -192,13 +192,13 @@ body {
 
         @media screen and (max-width:$desctop_small) {
             & {
-                display: none;
+                margin-left: 259px;
             }
         }
 
         @media screen and (max-width:$tablet) {
             & {
-                margin-left: 259px;
+                display: none;
             }
         }
 

@@ -187,10 +187,10 @@ body {
       background-clip: text; }
     @media screen and (max-width: 1000px) {
       .header_author {
-        display: none; } }
+        margin-left: 259px; } }
     @media screen and (max-width: 640px) {
       .header_author {
-        margin-left: 259px; } }
+        display: none; } }
   .header_burger {
     display: none; }
     .header_burger span {
@@ -571,7 +571,7 @@ body {
         gap: 171px; } }
     @media screen and (max-width: 640px) {
       .pets_arrows {
-        margin: 11px 0 19px -320px;
+        margin: 11px 0 19px 0px;
         gap: 30px; } }
     @media screen and (max-width: 320px) {
       .pets_arrows {
