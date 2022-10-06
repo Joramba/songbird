@@ -176,10 +176,10 @@ body {
       background-clip: text; }
     @media screen and (max-width: 1000px) {
       .header_author {
-        display: none; } }
+        margin-left: 259px; } }
     @media screen and (max-width: 640px) {
       .header_author {
-        margin-left: 259px; } }
+        display: none; } }
   .header_burger {
     display: none; }
     .header_burger span {

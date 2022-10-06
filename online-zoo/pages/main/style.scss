@@ -214,16 +214,15 @@ body {
 
         @media screen and (max-width:$desctop_small) {
             & {
-                display: none;
+                margin-left: 259px;
             }
         }
 
         @media screen and (max-width:$tablet) {
             & {
-                margin-left: 259px;
+                display: none;
             }
         }
-
     }
 
     &_burger {
@@ -819,7 +818,7 @@ body {
 
         @media screen and (max-width:$tablet) {
             & {
-                margin: 11px 0 19px -320px;
+                margin: 11px 0 19px 0px;
                 gap: 30px;
             }
         }
@@ -827,6 +826,7 @@ body {
         @media screen and (max-width:$mobile_phone) {
             & {
                 display: none;
+
             }
         }
     }
