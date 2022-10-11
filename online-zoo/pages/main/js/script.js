@@ -100,15 +100,8 @@ testimonialsArray.forEach(item => {
 
 testimonialsCards.innerHTML = htmlCode;
 
-const testimonialsWidth = document.querySelector('.testimonials_cards-background').offsetWidth;
-
 let rangeValue = function () {
-    let newValue = progressBar.value;
-    testimonialsCards.scrollBy({
-        left: (newValue - value) * (testimonialsWidth + gapContainer + 1),
-        behavior: 'smooth'
-    })
-    value = newValue;
+    testimonialsCards.style['transform'] = `translateX(-${progressBar.value * 298}px)`
 }
 
 progressBar.addEventListener("input", rangeValue);
