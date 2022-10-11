@@ -1436,6 +1436,7 @@ body {
         top: -15px;
         right: -15px;
     }
+
     &_cards {
         display: flex;
         flex-direction: row;
@@ -1529,6 +1530,11 @@ body {
         }
     }
 
+    &_wrapper {
+        overflow: hidden;
+    }
+
+
     &_container {
         display: flex;
         flex-direction: column;
@@ -1575,9 +1581,9 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        overflow: hidden;
         gap: 30px;
         margin-bottom: 21px;
+        transition: 2s;
         scroll-behavior: smooth;
 
 

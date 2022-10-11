@@ -1023,6 +1023,8 @@ body {
   @media screen and (max-width: 320px) {
     .testimonials {
       min-width: 320px; } }
+  .testimonials_wrapper {
+    overflow: hidden; }
   .testimonials_container {
     display: flex;
     flex-direction: column;
@@ -1053,9 +1055,9 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow: hidden;
     gap: 30px;
     margin-bottom: 21px;
+    transition: 2s;
     scroll-behavior: smooth; }
     @media screen and (max-width: 1000px) {
       .testimonials_cards {
