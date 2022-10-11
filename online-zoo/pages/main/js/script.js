@@ -38,28 +38,9 @@ burger.addEventListener('click', () => {
 // Carousel Pets
 
 next.addEventListener('click', () => {
-    //     const card = document.createElement("div");
-    //     card.classList.add("card");
-    //     const content = `
-    //         <div class="pets_card">
-    //         <img src="../../assets/images/card5.jpg" alt="Card 5" class="pets_card-img">
-    //         <div class="pets_card-info">
-    //             <div class="pets_card-text">
-    //                 <h4>cheetahs</h4>
-    //                 Native to Africa
-    //             </div>
-    //             <img src="../../assets/icons/meet-fish_icon.svg" alt="">
-    //         </div>
-    //     </div>
-    //   `;
-
-    //     // cardContainers.innerHTML += content;
-
-    //     cardContainers.appendChild = content;
-
-    cardContainers.forEach(item => {
-        item.scrollBy(width + gapContainer, 0);
-    });
+    // cardContainers.forEach(item => {
+    //     item.style['transform'] = `translateX(-${ * 298}px)`
+    // });
 });
 
 prev.addEventListener('click', () => {
@@ -73,8 +54,7 @@ prev.addEventListener('click', () => {
 const testimonialsCards = document.querySelector('.testimonials_cards'),
     progressBar = document.querySelector('input[type="range"]');
 
-let value = 0,
-    htmlCode = ``;
+let htmlCode = ``;
 
 testimonialsArray.forEach(item => {
     htmlCode += `
@@ -100,8 +80,17 @@ testimonialsArray.forEach(item => {
 
 testimonialsCards.innerHTML = htmlCode;
 
+let testWidth = 298;
+
+if (window.screen.width <= 1000) {
+    testWidth = 292 + 30;
+} else if (window.screen.width <= 640) {
+
+}
+
 let rangeValue = function () {
-    testimonialsCards.style['transform'] = `translateX(-${progressBar.value * 298}px)`
+    console.log(testWidth)
+    testimonialsCards.style['transform'] = `translateX(-${progressBar.value * testWidth}px)`
 }
 
 progressBar.addEventListener("input", rangeValue);
