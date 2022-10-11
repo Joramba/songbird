@@ -36,16 +36,26 @@ burger.addEventListener('click', () => {
 })
 
 // Carousel Pets
+let PetsContainerWidth = 1190;
+let i = 0;
 
 next.addEventListener('click', () => {
-    // cardContainers.forEach(item => {
-    //     item.style['transform'] = `translateX(-${ * 298}px)`
-    // });
+    i++;
+    if (i > 2) {
+        i = 0;
+    }
+    cardContainers.forEach(item => {
+        item.style['transform'] = `translateX(-${i * PetsContainerWidth}px)`
+    });
 });
 
 prev.addEventListener('click', () => {
+    i--;
+    if (i < 0) {
+        i = 2;
+    }
     cardContainers.forEach(item => {
-        item.scrollBy(-(width + gapContainer), 0);
+        item.style['transform'] = `translateX(-${i * PetsContainerWidth}px)`
     });
 });
 
