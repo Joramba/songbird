@@ -729,6 +729,29 @@ body {
         }
     }
 
+    &_wrapper {
+        overflow: hidden;
+        width: 1160px;
+
+        @media screen and (max-width:$desctop_small) {
+            & {
+                width: 955px;
+            }
+        }
+
+        @media screen and (max-width:$tablet) {
+            & {
+                width: 600px;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                width: 285px;
+            }
+        }
+    }
+
     &_info {
         display: flex;
         flex-wrap: nowrap;
@@ -1532,6 +1555,29 @@ body {
 
     &_wrapper {
         overflow: hidden;
+
+        @media screen and (max-width:$desctop_small) {
+            & {
+                margin-left: 30px;
+                width: 940px;
+            }
+        }
+
+        @media screen and (max-width:$tablet) {
+            & {
+                overflow: unset;
+                width: 600px;
+                margin: 0 0 40px 0;
+                height: 357px;
+            }
+        }
+
+        @media screen and (max-width:$mobile_phone) {
+            & {
+                width: 300px;
+                margin-left: 0;
+            }
+        }
     }
 
 
@@ -1591,13 +1637,14 @@ body {
             & {
                 justify-content: flex-start;
                 width: 940px;
-                overflow: hidden;
+                margin: 0 0 21px 0px;
                 align-self: center;
             }
         }
 
         @media screen and (max-width:$tablet) {
             & {
+                overflow: hidden;
                 flex-direction: column;
                 width: 640px;
                 align-items: center;

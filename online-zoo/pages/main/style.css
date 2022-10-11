@@ -509,6 +509,18 @@ body {
   @media screen and (max-width: 320px) {
     .pets {
       min-width: 320px; } }
+  .pets_wrapper {
+    overflow: hidden;
+    width: 1160px; }
+    @media screen and (max-width: 1000px) {
+      .pets_wrapper {
+        width: 955px; } }
+    @media screen and (max-width: 640px) {
+      .pets_wrapper {
+        width: 600px; } }
+    @media screen and (max-width: 320px) {
+      .pets_wrapper {
+        width: 285px; } }
   .pets_info {
     display: flex;
     flex-wrap: nowrap;
@@ -1025,6 +1037,20 @@ body {
       min-width: 320px; } }
   .testimonials_wrapper {
     overflow: hidden; }
+    @media screen and (max-width: 1000px) {
+      .testimonials_wrapper {
+        margin-left: 30px;
+        width: 940px; } }
+    @media screen and (max-width: 640px) {
+      .testimonials_wrapper {
+        overflow: unset;
+        width: 600px;
+        margin: 0 0 40px 0;
+        height: 357px; } }
+    @media screen and (max-width: 320px) {
+      .testimonials_wrapper {
+        width: 300px;
+        margin-left: 0; } }
   .testimonials_container {
     display: flex;
     flex-direction: column;
@@ -1063,10 +1089,11 @@ body {
       .testimonials_cards {
         justify-content: flex-start;
         width: 940px;
-        overflow: hidden;
+        margin: 0 0 21px 0px;
         align-self: center; } }
     @media screen and (max-width: 640px) {
       .testimonials_cards {
+        overflow: hidden;
         flex-direction: column;
         width: 640px;
         align-items: center;
