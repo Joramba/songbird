@@ -9,8 +9,6 @@ const burger = document.querySelector('.header_burger'),
     next = document.querySelector('.arrow_right').parentNode,
     prev = document.querySelector('.arrow_left').parentNode;
 
-let width = cardContainers[0].offsetWidth;
-
 [`load`, `resize`].forEach(it => {
     window.addEventListener(it, () => {
         if (window.screen.width > 640) {
@@ -36,6 +34,7 @@ burger.addEventListener('click', () => {
 })
 
 // Carousel Pets
+
 let PetsContainerWidth = 1190;
 let i = 0;
 
@@ -48,6 +47,7 @@ next.addEventListener('click', () => {
         item.style['transform'] = `translateX(-${i * PetsContainerWidth}px)`
     });
 });
+
 
 prev.addEventListener('click', () => {
     i--;
@@ -90,17 +90,17 @@ testimonialsArray.forEach(item => {
 
 testimonialsCards.innerHTML = htmlCode;
 
-let testWidth = 298;
+let testemonialsWidth = 298;
 
 if (window.screen.width <= 1000) {
-    testWidth = 292 + 30;
+    testemonialsWidth = 292 + 30;
 } else if (window.screen.width <= 640) {
 
 }
 
 let rangeValue = function () {
-    console.log(testWidth)
-    testimonialsCards.style['transform'] = `translateX(-${progressBar.value * testWidth}px)`
+    console.log(testemonialsWidth)
+    testimonialsCards.style['transform'] = `translateX(-${progressBar.value * testemonialsWidth}px)`
 }
 
 progressBar.addEventListener("input", rangeValue);
