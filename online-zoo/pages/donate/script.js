@@ -8,6 +8,16 @@ const burger = document.querySelector('.header_burger'),
         if (window.screen.width > 640) {
             burgerMenu.classList.remove('open');
         }
+
+        if (window.screen.width <= 1000 && window.screen.width > 640) {
+            const barContainer = document.querySelectorAll('.pick_feed-line-bar-container');
+            barContainer[0].style.display = 'none';
+            barContainer[1].style.display = 'none';
+
+            barContainer.forEach(item => {
+                item.classList.remove('hidden');
+            })
+        }
     });
 });
 
@@ -31,8 +41,11 @@ burger.addEventListener('click', () => {
 
 // Donate Amount 
 
+
+
 const donateContainer = document.querySelectorAll('.pick_feed-line-bar-container'),
     donateInput = document.querySelector('.pick_feed-another_amount-input');
+
 
 donateContainer.forEach(item => {
     item.addEventListener('click', () => {

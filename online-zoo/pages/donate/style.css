@@ -514,7 +514,7 @@ body {
       margin-top: 17px; }
       @media screen and (max-width: 1000px) {
         .pick_feed-line-bar {
-          gap: 50px; } }
+          gap: 65px; } }
       @media screen and (max-width: 640px) {
         .pick_feed-line-bar {
           gap: 84px; } }
@@ -523,6 +523,8 @@ body {
           margin-top: 8.5px;
           gap: 40px;
           height: 13.5px; } }
+      .pick_feed-line-bar .hidden {
+        display: none; }
       .pick_feed-line-bar-container {
         display: flex;
         flex-flow: column nowrap;
