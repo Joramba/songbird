@@ -7,16 +7,17 @@ module.exports = {
     entry: {
         bundle: path.resolve(__dirname, 'src/index.js')
     },
+    watch: true,
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: '[name][contenthash].js',
         clean: true,
-        assetModuleFilename: '[name][ext]'
+        assetModuleFilename: '[name][ext]',
     },
     devtool: 'source-map',
     devServer: {
         static: {
-            directory: path.resolve(__dirname, 'dist')
+            directory: path.resolve(__dirname, 'build')
         },
         port: 3000,
         open: true,
