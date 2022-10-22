@@ -651,7 +651,40 @@ for (var i = 0; i < fieldPiece.length; i++) {
 var time = document.querySelector('.time'),
   start_button = document.querySelector('.start_button'),
   stop_button = document.querySelector('.stop_button');
+var spaceY, spaceX;
+spaceX = '300px';
+spaceY = '300px';
 function setTime(seconds) {
+  for (var _i = 0; _i < 300; _i++) {
+    var rand = parseInt(Math.random() * 100) % 4;
+    console.log(rand);
+    console.log(spaceY);
+    console.log(spaceX);
+    if (rand == 0) {
+      var temp = up(spaceX, spaceY);
+      if (temp != -1) {
+        swap(temp);
+      }
+    }
+    if (rand == 1) {
+      var _temp = down(spaceX, spaceY);
+      if (_temp != -1) {
+        swap(_temp);
+      }
+    }
+    if (rand == 2) {
+      var _temp2 = left(spaceX, spaceY);
+      if (_temp2 != -1) {
+        swap(_temp2);
+      }
+    }
+    if (rand == 3) {
+      var _temp3 = right(spaceX, spaceY);
+      if (_temp3 != -1) {
+        swap(_temp3);
+      }
+    }
+  }
   var timer = setInterval(function () {
     seconds++;
     var m = Math.floor(seconds / 60);
@@ -662,7 +695,6 @@ function setTime(seconds) {
     if (s < 10) {
       s = "0" + s;
     }
-    console.log(s);
     time.innerHTML = "Time: ".concat(m, ":").concat(s);
   }, 1000);
   stop_button.addEventListener('click', function () {
@@ -676,6 +708,66 @@ function setTime(seconds) {
 function setMove(count) {
   document.querySelector('.moves').textContent = "Moves: ".concat(count);
 }
+function left(x, y) {
+  var cordX = parseInt(x);
+  var cordY = parseInt(y);
+  if (cordX > 0) {
+    for (var i = 0; i < fieldPiece.length; i++) {
+      if (parseInt(fieldPiece[i].style.left) + 100 == cordX && parseInt(fieldPiece[i].style.top) == cordY) {
+        return i;
+      }
+    }
+  } else {
+    return -1;
+  }
+}
+function right(x, y) {
+  var cordX = parseInt(x);
+  var cordY = parseInt(y);
+  if (cordX < 300) {
+    for (var i = 0; i < fieldPiece.length; i++) {
+      if (parseInt(fieldPiece[i].style.left) - 100 == cordX && parseInt(fieldPiece[i].style.top) == cordY) {
+        return i;
+      }
+    }
+  } else {
+    return -1;
+  }
+}
+function up(x, y) {
+  var cordX = parseInt(x);
+  var cordY = parseInt(y);
+  if (cordY > 0) {
+    for (var _i2 = 0; _i2 < fieldPiece.length; _i2++) {
+      if (parseInt(fieldPiece[_i2].style.top) + 100 == cordY && parseInt(fieldPiece[_i2].style.left) == cordX) {
+        return _i2;
+      }
+    }
+  } else {
+    return -1;
+  }
+}
+function down(x, y) {
+  var cordX = parseInt(x);
+  var cordY = parseInt(y);
+  if (cordY < 300) {
+    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
+      if (parseInt(fieldPiece[_i3].style.top) - 100 == cordY && parseInt(fieldPiece[_i3].style.left) == cordX) {
+        return _i3;
+      }
+    }
+  } else {
+    return -1;
+  }
+}
+function swap(position) {
+  var temp = fieldPiece[position].style.top;
+  fieldPiece[position].style.top = spaceY;
+  spaceY = temp;
+  temp = fieldPiece[position].style.left;
+  fieldPiece[position].style.left = spaceX;
+  spaceX = temp;
+}
 start_button.addEventListener('click', function () {
   setTime(0);
 });
@@ -684,4 +776,4 @@ setMove(0);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle6d4cfa38f84674892a48.js.map
+//# sourceMappingURL=bundle43f12f16d62c2d36f7f0.js.map

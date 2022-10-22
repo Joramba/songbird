@@ -70,7 +70,52 @@ const time = document.querySelector('.time'),
     start_button = document.querySelector('.start_button'),
     stop_button = document.querySelector('.stop_button');
 
+let spaceY,
+    spaceX;
+    
+spaceX = '300px';
+spaceY = '300px';
+
 function setTime(seconds) {
+    for (let i = 0; i < 300; i++) {
+        let rand = parseInt(Math.random() * 100) % 4;
+        console.log(rand);
+        console.log(spaceY);
+        console.log(spaceX);
+
+        if (rand == 0) {
+            let temp = up(spaceX, spaceY);
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+
+        if (rand == 1) {
+            let temp = down(spaceX, spaceY);
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+
+
+
+        if (rand == 2) {
+            let temp = left(spaceX, spaceY);
+            if (temp != -1) {
+                swap(temp);
+            }
+
+        }
+
+
+        if (rand == 3) {
+            let temp = right(spaceX, spaceY);
+            if (temp != -1) {
+                swap(temp);
+            }
+        }
+    }
+
     let timer = setInterval(function () {
         seconds++;
         let m = Math.floor(seconds / 60);
@@ -81,7 +126,6 @@ function setTime(seconds) {
         if (s < 10) {
             s = `0` + s;
         }
-        console.log(s);
         time.innerHTML = `Time: ${m}:${s}`;
     }, 1000);
 
@@ -99,8 +143,87 @@ function setMove(count) {
     document.querySelector('.moves').textContent = `Moves: ${count}`;
 }
 
+
+
+function left(x, y) {
+    let cordX = parseInt(x);
+    let cordY = parseInt(y);
+
+    if (cordX > 0) {
+        for (var i = 0; i < fieldPiece.length; i++) {
+            if (parseInt(fieldPiece[i].style.left) + 100 == cordX && parseInt(fieldPiece[i].style.top) == cordY) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+
+}
+function right(x, y) {
+    var cordX = parseInt(x);
+    var cordY = parseInt(y);
+    if (cordX < 300) {
+        for (var i = 0; i < fieldPiece.length; i++) {
+            if (parseInt(fieldPiece[i].style.left) - 100 == cordX && parseInt(fieldPiece[i].style.top) == cordY) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+
+
+function up(x, y) {
+    let cordX = parseInt(x);
+    let cordY = parseInt(y);
+    if (cordY > 0) {
+        for (let i = 0; i < fieldPiece.length; i++) {
+            if (parseInt(fieldPiece[i].style.top) + 100 == cordY && parseInt(fieldPiece[i].style.left) == cordX) {
+                return i;
+            }
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+
+
+function down(x, y) {
+    let cordX = parseInt(x);
+    let cordY = parseInt(y);
+    if (cordY < 300) {
+        for (let i = 0; i < fieldPiece.length; i++) {
+            if (parseInt(fieldPiece[i].style.top) - 100 == cordY && parseInt(fieldPiece[i].style.left) == cordX) {
+                return i;
+            }
+        }
+    }
+
+    else {
+        return -1;
+    }
+}
+
+
+function swap(position) {
+    let temp = fieldPiece[position].style.top;
+    fieldPiece[position].style.top = spaceY;
+    spaceY = temp;
+    temp = fieldPiece[position].style.left;
+    fieldPiece[position].style.left = spaceX;
+    spaceX = temp;
+}
+
 start_button.addEventListener('click', () => {
     setTime(0);
 });
 
 setMove(0);
+
