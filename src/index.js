@@ -9,10 +9,10 @@ const divMain = document.createElement("div"),
 divMain.className = "main";
 buttonContainer.className = "button_container";
 buttonContainer.innerHTML = `   
-    <button class="button">Shuffle and start</button>
-    <button class="button">Stop</button>
-    <button class="button">Save</button>
-    <button class="button">Results</button>
+    <button class="button start_button">Shuffle and start</button>
+    <button class="button stop_button">Stop</button>
+    <button class="button save_button">Save</button>
+    <button class="button res_button">Results</button>
 `;
 
 actionContainer.className = 'action_container';
@@ -64,4 +64,43 @@ for (let i = 0; i < fieldPiece.length; i++) {
     fieldPiece[i].style.left = (i % 4 * 100) + 'px';
     fieldPiece[i].style.top = (parseInt(i / 4) * 100) + 'px';
     fieldPiece[i].style.backgroundPosition = '-' + fieldPiece[i].style.left + ' ' + '-' + fieldPiece[i].style.top;
-} 
+}
+
+const time = document.querySelector('.time'),
+    start_button = document.querySelector('.start_button'),
+    stop_button = document.querySelector('.stop_button');
+
+function setTime(seconds) {
+    let timer = setInterval(function () {
+        seconds++;
+        let m = Math.floor(seconds / 60);
+        if (m < 10) {
+            m = `0` + m;
+        }
+        let s = seconds % 60;
+        if (s < 10) {
+            s = `0` + s;
+        }
+        console.log(s);
+        time.innerHTML = `Time: ${m}:${s}`;
+    }, 1000);
+
+    stop_button.addEventListener('click', () => {
+        clearInterval(timer);
+    });
+
+    start_button.addEventListener('click', () => {
+        time.innerHTML = `Time: 00:00`;
+        setTime(0);
+    });
+}
+
+function setMove(count) {
+    document.querySelector('.moves').textContent = `Moves: ${count}`;
+}
+
+start_button.addEventListener('click', () => {
+    setTime(0);
+});
+
+setMove(0);
