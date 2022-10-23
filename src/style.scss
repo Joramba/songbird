@@ -75,3 +75,13 @@ canvas {
     vertical-align: middle;
     width: 96px;
 }
+
+.win {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    margin-top: 20px;
+}
