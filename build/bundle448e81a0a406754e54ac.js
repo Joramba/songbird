@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".main {\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap;\n  width: 400px;\n  margin: 0 auto;\n}\n\n.button_container {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n}\n\n.button {\n  background-color: rgb(14, 192, 168);\n  font-size: 18px;\n  color: white;\n  border: 0;\n  padding: 10px;\n  box-shadow: 1px 1px 1px black;\n}\n\n.button:hover {\n  cursor: pointer;\n  box-shadow: none;\n}\n\n.active {\n  background-color: rgb(88, 88, 92);\n}\n\n.action_container {\n  padding: 10px 0;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: center;\n  gap: 30px;\n}\n\ncanvas {\n  border: 1px solid black;\n  background-color: rgb(180, 179, 179);\n}\n\n.size_container {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: center;\n  padding: 10px 0 0 0;\n}\n\n.frame_size,\n.sizes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.field_area {\n  font-size: 32px;\n  height: 400px;\n  padding: 0px;\n  position: relative;\n  border: 2px solid black;\n}\n\n.fieldpiece {\n  border: 2px solid black;\n  height: 96px;\n  line-height: 96px;\n  position: absolute;\n  text-align: center;\n  vertical-align: middle;\n  width: 96px;\n}\n\n.win {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: center;\n  align-items: center;\n  font-size: 26px;\n  margin-top: 20px;\n}", "",{"version":3,"sources":["webpack://./src/style.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,iBAAA;EACA,YAAA;EACA,cAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,iBAAA;EACA,8BAAA;AACJ;;AAEA;EACI,mCAAA;EACA,eAAA;EACA,YAAA;EACA,SAAA;EACA,aAAA;EACA,6BAAA;AACJ;;AAEA;EACI,eAAA;EACA,gBAAA;AACJ;;AAEA;EACI,iCAAA;AACJ;;AAEA;EACI,eAAA;EACA,aAAA;EACA,qBAAA;EACA,uBAAA;EACA,SAAA;AACJ;;AAEA;EACI,uBAAA;EACA,oCAAA;AACJ;;AAEA;EACI,aAAA;EACA,wBAAA;EACA,uBAAA;EACA,mBAAA;AACJ;;AAEA;;EAEI,aAAA;EACA,uBAAA;EACA,mBAAA;AACJ;;AAEA;EACI,eAAA;EACA,aAAA;EACA,YAAA;EACA,kBAAA;EACA,uBAAA;AACJ;;AAEA;EACI,uBAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,sBAAA;EACA,WAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,iBAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;EACA,gBAAA;AACJ","sourcesContent":[".main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex-wrap: nowrap;\r\n    width: 400px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.button_container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n.button {\r\n    background-color: rgb(14, 192, 168);\r\n    font-size: 18px;\r\n    color: white;\r\n    border: 0;\r\n    padding: 10px;\r\n    box-shadow: 1px 1px 1px black;\r\n}\r\n\r\n.button:hover {\r\n    cursor: pointer;\r\n    box-shadow: none;\r\n}\r\n\r\n.active {\r\n    background-color: rgb(88, 88, 92);\r\n}\r\n\r\n.action_container {\r\n    padding: 10px 0;\r\n    display: flex;\r\n    flex-flow: row nowrap;\r\n    justify-content: center;\r\n    gap: 30px;\r\n}\r\n\r\ncanvas {\r\n    border: 1px solid black;\r\n    background-color: rgb(180, 179, 179);\r\n}\r\n\r\n.size_container {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\r\n    padding: 10px 0 0 0;\r\n}\r\n\r\n.frame_size,\r\n.sizes {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.field_area {\r\n    font-size: 32px;\r\n    height: 400px;\r\n    padding: 0px;\r\n    position: relative;\r\n    border: 2px solid black;\r\n}\r\n\r\n.fieldpiece {\r\n    border: 2px solid black;\r\n    height: 96px;\r\n    line-height: 96px;\r\n    position: absolute;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    width: 96px;\r\n}\r\n\r\n.win {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 26px;\r\n    margin-top: 20px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".main {\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap;\n  width: 400px;\n  margin: 0 auto;\n}\n@media (max-width: 420px) {\n  .main {\n    padding: 20px;\n  }\n}\n\n.button_container {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: space-between;\n}\n\n.button {\n  background-color: rgb(14, 192, 168);\n  font-size: 18px;\n  color: white;\n  border: 0;\n  padding: 10px;\n  box-shadow: 1px 1px 1px black;\n}\n\n.button:hover {\n  cursor: pointer;\n  box-shadow: none;\n}\n\n.active {\n  background-color: rgb(88, 88, 92);\n}\n\n.action_container {\n  padding: 10px 0;\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: center;\n  gap: 30px;\n}\n\ncanvas {\n  border: 1px solid black;\n  background-color: rgb(180, 179, 179);\n}\n\n.size_container {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: center;\n  padding: 10px 0 0 0;\n}\n\n.frame_size,\n.sizes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.field_area {\n  font-size: 32px;\n  height: 400px;\n  padding: 0px;\n  position: relative;\n  border: 2px solid black;\n}\n\n.fieldpiece {\n  transition: 1s;\n  border: 2px solid black;\n  height: 96px;\n  line-height: 96px;\n  position: absolute;\n  text-align: center;\n  vertical-align: middle;\n  width: 96px;\n}\n\n.win {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: center;\n  align-items: center;\n  font-size: 26px;\n  margin-top: 20px;\n}\n\n.results {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.results div {\n  padding: 10px 15px;\n}\n@media (max-width: 720px) {\n  .results {\n    top: 600px;\n  }\n}", "",{"version":3,"sources":["webpack://./src/style.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,iBAAA;EACA,YAAA;EACA,cAAA;AACJ;AACI;EAPJ;IAQQ,aAAA;EAEN;AACF;;AACA;EACI,aAAA;EACA,mBAAA;EACA,iBAAA;EACA,8BAAA;AAEJ;;AACA;EACI,mCAAA;EACA,eAAA;EACA,YAAA;EACA,SAAA;EACA,aAAA;EACA,6BAAA;AAEJ;;AACA;EACI,eAAA;EACA,gBAAA;AAEJ;;AACA;EACI,iCAAA;AAEJ;;AACA;EACI,eAAA;EACA,aAAA;EACA,qBAAA;EACA,uBAAA;EACA,SAAA;AAEJ;;AACA;EACI,uBAAA;EACA,oCAAA;AAEJ;;AACA;EACI,aAAA;EACA,wBAAA;EACA,uBAAA;EACA,mBAAA;AAEJ;;AACA;;EAEI,aAAA;EACA,uBAAA;EACA,mBAAA;AAEJ;;AACA;EACI,eAAA;EACA,aAAA;EACA,YAAA;EACA,kBAAA;EACA,uBAAA;AAEJ;;AACA;EACI,cAAA;EACA,uBAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,sBAAA;EACA,WAAA;AAEJ;;AACA;EACI,aAAA;EACA,mBAAA;EACA,iBAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;EACA,gBAAA;AAEJ;;AACA;EACI,kBAAA;EACA,MAAA;EACA,OAAA;AAEJ;AAAI;EACI,kBAAA;AAER;AACI;EATJ;IAUQ,UAAA;EAEN;AACF","sourcesContent":[".main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex-wrap: nowrap;\r\n    width: 400px;\r\n    margin: 0 auto;\r\n\r\n    @media (max-width: 420px) {\r\n        padding: 20px;\r\n    }\r\n}\r\n\r\n.button_container {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n.button {\r\n    background-color: rgb(14, 192, 168);\r\n    font-size: 18px;\r\n    color: white;\r\n    border: 0;\r\n    padding: 10px;\r\n    box-shadow: 1px 1px 1px black;\r\n}\r\n\r\n.button:hover {\r\n    cursor: pointer;\r\n    box-shadow: none;\r\n}\r\n\r\n.active {\r\n    background-color: rgb(88, 88, 92);\r\n}\r\n\r\n.action_container {\r\n    padding: 10px 0;\r\n    display: flex;\r\n    flex-flow: row nowrap;\r\n    justify-content: center;\r\n    gap: 30px;\r\n}\r\n\r\ncanvas {\r\n    border: 1px solid black;\r\n    background-color: rgb(180, 179, 179);\r\n}\r\n\r\n.size_container {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: center;\r\n    padding: 10px 0 0 0;\r\n}\r\n\r\n.frame_size,\r\n.sizes {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.field_area {\r\n    font-size: 32px;\r\n    height: 400px;\r\n    padding: 0px;\r\n    position: relative;\r\n    border: 2px solid black;\r\n}\r\n\r\n.fieldpiece {\r\n    transition: 1s;\r\n    border: 2px solid black;\r\n    height: 96px;\r\n    line-height: 96px;\r\n    position: absolute;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    width: 96px;\r\n}\r\n\r\n.win {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: nowrap;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 26px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.results {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n\r\n    & div {\r\n        padding: 10px 15px;\r\n    }\r\n\r\n    @media (max-width: 720px) {\r\n        top: 600px;\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -666,10 +666,11 @@ for (var i = 0; i < fieldPiece.length; i++) {
 ;
 var time = document.querySelector('.time'),
   start_button = document.querySelector('.start_button'),
-  stop_button = document.querySelector('.stop_button');
-var spaceY, spaceX;
-spaceX = '300px';
-spaceY = '300px';
+  stop_button = document.querySelector('.stop_button'),
+  save_button = document.querySelector('.save_button'),
+  res_button = document.querySelector('.res_button');
+var spaceY = '300px',
+  spaceX = '300px';
 function setTime(seconds) {
   var timer = setInterval(function () {
     seconds++;
@@ -700,7 +701,20 @@ function setTime(seconds) {
   });
 }
 function shuffle() {
-  for (var _i = 0; _i < 300; _i++) {
+  for (var _i = 0; _i < fieldPiece.length; _i++) {
+    fieldPiece[_i].onclick = function () {
+      if (checkMove(parseInt(this.innerHTML))) {
+        swap(this.innerHTML - 1);
+        move_counter++;
+        move_counter = setMove(move_counter);
+      }
+      if (finish()) {
+        win(move_counter, seconds_counter);
+      }
+      return;
+    };
+  }
+  for (var _i2 = 0; _i2 < 300; _i2++) {
     var rand = parseInt(Math.random() * 100) % 4;
     if (rand == 0) {
       var temp = up(spaceX, spaceY);
@@ -762,9 +776,9 @@ function up(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY > 0) {
-    for (var _i2 = 0; _i2 < fieldPiece.length; _i2++) {
-      if (parseInt(fieldPiece[_i2].style.top) + 100 == cordY && parseInt(fieldPiece[_i2].style.left) == cordX) {
-        return _i2;
+    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
+      if (parseInt(fieldPiece[_i3].style.top) + 100 == cordY && parseInt(fieldPiece[_i3].style.left) == cordX) {
+        return _i3;
       }
     }
   } else {
@@ -775,9 +789,9 @@ function down(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY < 300) {
-    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
-      if (parseInt(fieldPiece[_i3].style.top) - 100 == cordY && parseInt(fieldPiece[_i3].style.left) == cordX) {
-        return _i3;
+    for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
+      if (parseInt(fieldPiece[_i4].style.top) - 100 == cordY && parseInt(fieldPiece[_i4].style.left) == cordX) {
+        return _i4;
       }
     }
   } else {
@@ -817,6 +831,11 @@ function checkMove(position) {
   }
 }
 function win(move_counter, seconds_counter) {
+  for (var _i5 = 0; _i5 < fieldPiece.length; _i5++) {
+    fieldPiece[_i5].onclick = function () {
+      return false;
+    };
+  }
   var m = Math.floor(seconds_counter / 60);
   if (m < 10) {
     m = "0" + m;
@@ -827,13 +846,51 @@ function win(move_counter, seconds_counter) {
   }
   winContainer.innerHTML = "   \n    Hooray! You solved the puzzle in ".concat(m, ":").concat(s, " and ").concat(move_counter, " moves!\n    ");
   document.body.appendChild(winContainer);
+  save_button.addEventListener('click', function () {
+    return saveData(move_counter, seconds_counter);
+  });
+}
+var resDiv = document.createElement("div");
+resDiv.className = 'results';
+res_button.addEventListener('click', results);
+function results() {
+  resDiv.innerHTML = '';
+  var results = JSON.parse(window.localStorage.getItem('result'));
+  var i = 0;
+  for (var key in results) {
+    if (i > 4) {
+      break;
+    }
+    var m = Math.floor(results[key].time / 60);
+    if (m < 10) {
+      m = "0" + m;
+    }
+    var s = results[key].time % 60;
+    if (s < 10) {
+      s = "0" + s;
+    }
+    resDiv.innerHTML += "\n            <div>\n                ".concat(i + 1, ". Time: ").concat(m, ":").concat(s, ", Moves: ").concat(results[key].moves, " \n            </div>\n        ");
+    i++;
+  }
+  document.body.appendChild(resDiv);
+}
+function saveData(moves, time) {
+  var results = JSON.parse(window.localStorage.getItem('result'));
+  if (results === null) {
+    results = [];
+  }
+  results.push({
+    moves: moves,
+    time: time
+  });
+  window.localStorage.setItem('result', JSON.stringify(results));
 }
 function finish() {
   var flag = true;
-  for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
-    var top = parseInt(fieldPiece[_i4].style.top);
-    var _left = parseInt(fieldPiece[_i4].style.left);
-    if (_left != _i4 % 4 * 100 || top != parseInt(_i4 / 4) * 100) {
+  for (var _i6 = 0; _i6 < fieldPiece.length; _i6++) {
+    var top = parseInt(fieldPiece[_i6].style.top);
+    var _left = parseInt(fieldPiece[_i6].style.left);
+    if (_left != _i6 % 4 * 100 || top != parseInt(_i6 / 4) * 100) {
       flag = false;
       break;
     }
@@ -844,4 +901,4 @@ function finish() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle2b5823aa6494397da6ad.js.map
+//# sourceMappingURL=bundle448e81a0a406754e54ac.js.map

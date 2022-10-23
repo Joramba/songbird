@@ -85,18 +85,17 @@ for (let i = 0; i < fieldPiece.length; i++) {
 
 const time = document.querySelector('.time'),
     start_button = document.querySelector('.start_button'),
-    stop_button = document.querySelector('.stop_button');
+    stop_button = document.querySelector('.stop_button'),
+    save_button = document.querySelector('.save_button'),
+    res_button = document.querySelector('.res_button');
 
-let spaceY,
-    spaceX;
+let spaceY = '300px',
+    spaceX = '300px';
 
-spaceX = '300px';
-spaceY = '300px';
 
 function setTime(seconds) {
     let timer = setInterval(function () {
         seconds++;
-
         seconds_counter++;
         let m = Math.floor(seconds / 60);
         if (m < 10) {
@@ -128,6 +127,21 @@ function setTime(seconds) {
 
 
 function shuffle() {
+    for (let i = 0; i < fieldPiece.length; i++) {
+
+        fieldPiece[i].onclick = function () {
+            if (checkMove(parseInt(this.innerHTML))) {
+                swap(this.innerHTML - 1);
+                move_counter++;
+                move_counter = setMove(move_counter);
+            }
+            if (finish()) {
+                win(move_counter, seconds_counter);
+            }
+            return;
+        }
+    }
+
     for (let i = 0; i < 300; i++) {
         let rand = parseInt(Math.random() * 100) % 4;
 
@@ -279,6 +293,12 @@ function checkMove(position) {
 
 
 function win(move_counter, seconds_counter) {
+    for (let i = 0; i < fieldPiece.length; i++) {
+        fieldPiece[i].onclick = function () {
+            return false;
+        }
+    }
+
     let m = Math.floor(seconds_counter / 60);
     if (m < 10) {
         m = `0` + m;
@@ -292,8 +312,59 @@ function win(move_counter, seconds_counter) {
     Hooray! You solved the puzzle in ${m}:${s} and ${move_counter} moves!
     `;
     document.body.appendChild(winContainer);
+    save_button.addEventListener('click', () => saveData(move_counter, seconds_counter));
 }
 
+
+
+const resDiv = document.createElement("div");
+resDiv.className = 'results';
+
+res_button.addEventListener('click', results)
+
+function results() {
+    resDiv.innerHTML = '';
+    let results = JSON.parse(window.localStorage.getItem('result'));
+
+    let i = 0;
+
+    for (let key in results) {
+        if (i > 4) {
+            break;
+        }
+
+        let m = Math.floor(results[key].time / 60);
+        if (m < 10) {
+            m = `0` + m;
+        }
+        let s = results[key].time % 60;
+        if (s < 10) {
+            s = `0` + s;
+        }
+
+        resDiv.innerHTML += `
+            <div>
+                ${i + 1}. Time: ${m}:${s}, Moves: ${results[key].moves} 
+            </div>
+        `
+        i++;
+    }
+
+    document.body.appendChild(resDiv);
+}
+
+
+
+function saveData(moves, time) {
+    let results = JSON.parse(window.localStorage.getItem('result'));
+
+    if (results === null) {
+        results = []
+    }
+
+    results.push({ moves, time });
+    window.localStorage.setItem('result', JSON.stringify(results));
+}
 
 function finish() {
     let flag = true;

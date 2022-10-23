@@ -4,6 +4,10 @@
     flex-wrap: nowrap;
     width: 400px;
     margin: 0 auto;
+
+    @media (max-width: 420px) {
+        padding: 20px;
+    }
 }
 
 .button_container {
@@ -67,6 +71,7 @@ canvas {
 }
 
 .fieldpiece {
+    transition: 1s;
     border: 2px solid black;
     height: 96px;
     line-height: 96px;
@@ -84,4 +89,18 @@ canvas {
     align-items: center;
     font-size: 26px;
     margin-top: 20px;
+}
+
+.results {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    & div {
+        padding: 10px 15px;
+    }
+
+    @media (max-width: 720px) {
+        top: 600px;
+    }
 }
