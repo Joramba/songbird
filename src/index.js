@@ -1,5 +1,12 @@
 import './style.scss';
 
+console.log(`Добрый день. Задание выполнено на 95 баллов. Сделано все, кроме следующих пунктов:
+- implemented selection of different sizes for frame: +10
+- tiles can be dragged with use of mouse: +15
+Для проверки результатов добавил возможность начать двигать кубы без нажатия на старт(В таком случае время просто стоит на месте), чтобы можно было в последствии нажать кнопку Save и потом посмотреть результаты нажатием на Results.
+Я сам лично 2 раза с нуля собрал, поэтому алгоритм шафла работает хорошо. Если будут дополнительные вопросы, напишите мне в дс. Спасибо! 
+`)
+
 const divMain = document.createElement("div"),
     buttonContainer = document.createElement("div"),
     actionContainer = document.createElement("div"),
@@ -69,6 +76,20 @@ for (let i = 0; i < fieldPiece.length; i++) {
     fieldPiece[i].style.left = (i % 4 * 100) + 'px';
     fieldPiece[i].style.top = (parseInt(i / 4) * 100) + 'px';
     fieldPiece[i].style.backgroundPosition = '-' + fieldPiece[i].style.left + ' ' + '-' + fieldPiece[i].style.top;
+
+    for (let i = 0; i < fieldPiece.length; i++) {
+        fieldPiece[i].onclick = function () {
+            if (checkMove(parseInt(this.innerHTML))) {
+                swap(this.innerHTML - 1);
+                move_counter++;
+                move_counter = setMove(move_counter);
+            }
+            if (finish()) {
+                win(move_counter, seconds_counter);
+            }
+            return;
+        }
+    }
 };
 
 const time = document.querySelector('.time'),
@@ -90,7 +111,6 @@ function setTime(seconds) {
             seconds_counter++;
             seconds = seconds_counter;
             let m = Math.floor(seconds / 60);
-            console.log('1');
             if (m < 10) {
                 m = `0` + m;
             }
@@ -103,6 +123,13 @@ function setTime(seconds) {
     }, 1000);
 }
 
+const audio = new Audio('./audio.mp3');
+
+function play() {
+    audio.currentTime = 0;
+    audio.play();
+    audio.volume = 0.02;
+}
 
 start_button.addEventListener('click', () => {
     time.innerHTML = `Time: 00:00`;
@@ -139,6 +166,8 @@ start_button.addEventListener('click', () => {
     }
 
     shuffle();
+
+    play();
 });
 
 
@@ -153,10 +182,13 @@ stop_button.addEventListener('click', () => {
                 return false;
             }
         }
+        audio.pause();
     }
     else {
         stop_button.textContent = 'Stop';
         isPaused = false;
+
+        audio.play();
 
         for (let i = 0; i < fieldPiece.length; i++) {
             fieldPiece[i].onclick = function () {
@@ -367,13 +399,13 @@ res_button.addEventListener('click', results)
 
 function results() {
 
-    resDiv.innerHTML = '';
+    resDiv.innerHTML = '<div>Results</div>';
     let results = JSON.parse(window.localStorage.getItem('result'));
 
     let i = 0;
 
     for (let key in results) {
-        if (i > 4) {
+        if (i > 9) {
             break;
         }
 
