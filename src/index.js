@@ -69,18 +69,6 @@ for (let i = 0; i < fieldPiece.length; i++) {
     fieldPiece[i].style.left = (i % 4 * 100) + 'px';
     fieldPiece[i].style.top = (parseInt(i / 4) * 100) + 'px';
     fieldPiece[i].style.backgroundPosition = '-' + fieldPiece[i].style.left + ' ' + '-' + fieldPiece[i].style.top;
-
-    fieldPiece[i].onclick = function () {
-        if (checkMove(parseInt(this.innerHTML))) {
-            swap(this.innerHTML - 1);
-            move_counter++;
-            move_counter = setMove(move_counter);
-        }
-        if (finish()) {
-            win(move_counter, seconds_counter);
-        }
-        return;
-    }
 };
 
 const time = document.querySelector('.time'),
@@ -91,44 +79,104 @@ const time = document.querySelector('.time'),
 
 let spaceY = '300px',
     spaceX = '300px';
+let timerInterval;
+
+let isPaused = false;
 
 
 function setTime(seconds) {
-    let timer = setInterval(function () {
-        seconds++;
-        seconds_counter++;
-        let m = Math.floor(seconds / 60);
-        if (m < 10) {
-            m = `0` + m;
+    timerInterval = setInterval(function () {
+        if (!isPaused) {
+            seconds_counter++;
+            seconds = seconds_counter;
+            let m = Math.floor(seconds / 60);
+            console.log('1');
+            if (m < 10) {
+                m = `0` + m;
+            }
+            let s = seconds % 60;
+            if (s < 10) {
+                s = `0` + s;
+            }
+            time.innerHTML = `Time: ${m}:${s}`;
         }
-        let s = seconds % 60;
-        if (s < 10) {
-            s = `0` + s;
-        }
-        time.innerHTML = `Time: ${m}:${s}`;
     }, 1000);
-
-    stop_button.addEventListener('click', () => {
-        clearInterval(timer);
-    });
-
-    start_button.addEventListener('click', () => {
-        time.innerHTML = `Time: 00:00`;
-        clearInterval(timer);
-        if (document.querySelector('.win')) {
-            document.querySelector('.win').remove();
-        }
-        setMove(0);
-        move_counter = 0;
-        setTime(0);
-        shuffle();
-    });
 }
+
+
+start_button.addEventListener('click', () => {
+    time.innerHTML = `Time: 00:00`;
+
+    clearInterval(timerInterval);
+
+    for (let i = 0; i < fieldPiece.length; i++) {
+        fieldPiece[i].onclick = function () {
+            if (checkMove(parseInt(this.innerHTML))) {
+                swap(this.innerHTML - 1);
+                move_counter++;
+                move_counter = setMove(move_counter);
+            }
+            if (finish()) {
+                win(move_counter, seconds_counter);
+            }
+            return;
+        }
+    }
+
+    move_counter = 0;
+    setMove(move_counter);
+
+    seconds_counter = 0;
+    setTime(seconds_counter);
+
+    if (document.querySelector('.win')) {
+        document.querySelector('.win').remove();
+    }
+
+    if (stop_button.textContent == 'Resume') {
+        stop_button.textContent = 'Stop';
+        isPaused = false;
+    }
+
+    shuffle();
+});
+
+
+
+
+stop_button.addEventListener('click', () => {
+    if (stop_button.textContent == 'Stop') {
+        stop_button.textContent = 'Resume';
+        isPaused = true;
+        for (let i = 0; i < fieldPiece.length; i++) {
+            fieldPiece[i].onclick = function () {
+                return false;
+            }
+        }
+    }
+    else {
+        stop_button.textContent = 'Stop';
+        isPaused = false;
+
+        for (let i = 0; i < fieldPiece.length; i++) {
+            fieldPiece[i].onclick = function () {
+                if (checkMove(parseInt(this.innerHTML))) {
+                    swap(this.innerHTML - 1);
+                    move_counter++;
+                    move_counter = setMove(move_counter);
+                }
+                if (finish()) {
+                    win(move_counter, seconds_counter);
+                }
+                return;
+            }
+        }
+    }
+});
 
 
 function shuffle() {
     for (let i = 0; i < fieldPiece.length; i++) {
-
         fieldPiece[i].onclick = function () {
             if (checkMove(parseInt(this.innerHTML))) {
                 swap(this.innerHTML - 1);
@@ -260,17 +308,7 @@ function swap(position) {
     spaceX = temp;
 }
 
-setTime(0);
 
-start_button.addEventListener('click', () => {
-    setTime(0);
-    move_counter = 0;
-    setMove(move_counter);
-    if (document.querySelector('.win')) {
-        document.querySelector('.win').remove();
-    }
-    shuffle();
-});
 
 
 function checkMove(position) {
@@ -299,6 +337,8 @@ function win(move_counter, seconds_counter) {
         }
     }
 
+    clearInterval(timerInterval);
+
     let m = Math.floor(seconds_counter / 60);
     if (m < 10) {
         m = `0` + m;
@@ -307,6 +347,9 @@ function win(move_counter, seconds_counter) {
     if (s < 10) {
         s = `0` + s;
     }
+
+    document.querySelector('.time').textContent = `Time: ${m}:${s}`;
+
 
     winContainer.innerHTML = `   
     Hooray! You solved the puzzle in ${m}:${s} and ${move_counter} moves!
@@ -323,6 +366,7 @@ resDiv.className = 'results';
 res_button.addEventListener('click', results)
 
 function results() {
+
     resDiv.innerHTML = '';
     let results = JSON.parse(window.localStorage.getItem('result'));
 
@@ -350,7 +394,12 @@ function results() {
         i++;
     }
 
-    document.body.appendChild(resDiv);
+
+    if (document.body.querySelector('.results')) {
+        document.body.querySelector('.results').remove();
+    } else {
+        document.body.appendChild(resDiv);
+    }
 }
 
 
