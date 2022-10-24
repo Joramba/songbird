@@ -612,6 +612,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 
+console.log("\u0414\u043E\u0431\u0440\u044B\u0439 \u0434\u0435\u043D\u044C. \u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043E \u043D\u0430 95 \u0431\u0430\u043B\u043B\u043E\u0432. \u0421\u0434\u0435\u043B\u0430\u043D\u043E \u0432\u0441\u0435, \u043A\u0440\u043E\u043C\u0435 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0445 \u043F\u0443\u043D\u043A\u0442\u043E\u0432:\n- implemented selection of different sizes for frame: +10\n- tiles can be dragged with use of mouse: +15\n\u0414\u043B\u044F \u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u043E\u0432 \u0434\u043E\u0431\u0430\u0432\u0438\u043B \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u043D\u0430\u0447\u0430\u0442\u044C \u0434\u0432\u0438\u0433\u0430\u0442\u044C \u043A\u0443\u0431\u044B \u0431\u0435\u0437 \u043D\u0430\u0436\u0430\u0442\u0438\u044F \u043D\u0430 \u0441\u0442\u0430\u0440\u0442(\u0412 \u0442\u0430\u043A\u043E\u043C \u0441\u043B\u0443\u0447\u0430\u0435 \u0432\u0440\u0435\u043C\u044F \u043F\u0440\u043E\u0441\u0442\u043E \u0441\u0442\u043E\u0438\u0442 \u043D\u0430 \u043C\u0435\u0441\u0442\u0435), \u0447\u0442\u043E\u0431\u044B \u043C\u043E\u0436\u043D\u043E \u0431\u044B\u043B\u043E \u0432 \u043F\u043E\u0441\u043B\u0435\u0434\u0441\u0442\u0432\u0438\u0438 \u043D\u0430\u0436\u0430\u0442\u044C \u043A\u043D\u043E\u043F\u043A\u0443 Save \u0438 \u043F\u043E\u0442\u043E\u043C \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043D\u0430\u0436\u0430\u0442\u0438\u0435\u043C \u043D\u0430 Results.\n\u042F \u0441\u0430\u043C \u043B\u0438\u0447\u043D\u043E 2 \u0440\u0430\u0437\u0430 \u0441 \u043D\u0443\u043B\u044F \u0441\u043E\u0431\u0440\u0430\u043B, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u0430\u043B\u0433\u043E\u0440\u0438\u0442\u043C \u0448\u0430\u0444\u043B\u0430 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0445\u043E\u0440\u043E\u0448\u043E. \u0415\u0441\u043B\u0438 \u0431\u0443\u0434\u0443\u0442 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u043D\u0430\u043F\u0438\u0448\u0438\u0442\u0435 \u043C\u043D\u0435 \u0432 \u0434\u0441. \u0421\u043F\u0430\u0441\u0438\u0431\u043E! \n");
 var divMain = document.createElement("div"),
   buttonContainer = document.createElement("div"),
   actionContainer = document.createElement("div"),
@@ -651,6 +652,19 @@ for (var i = 0; i < fieldPiece.length; i++) {
   fieldPiece[i].style.left = i % 4 * 100 + 'px';
   fieldPiece[i].style.top = parseInt(i / 4) * 100 + 'px';
   fieldPiece[i].style.backgroundPosition = '-' + fieldPiece[i].style.left + ' ' + '-' + fieldPiece[i].style.top;
+  for (var _i = 0; _i < fieldPiece.length; _i++) {
+    fieldPiece[_i].onclick = function () {
+      if (checkMove(parseInt(this.innerHTML))) {
+        swap(this.innerHTML - 1);
+        move_counter++;
+        move_counter = setMove(move_counter);
+      }
+      if (finish()) {
+        win(move_counter, seconds_counter);
+      }
+      return;
+    };
+  }
 }
 ;
 var time = document.querySelector('.time'),
@@ -668,7 +682,6 @@ function setTime(seconds) {
       seconds_counter++;
       seconds = seconds_counter;
       var m = Math.floor(seconds / 60);
-      console.log('1');
       if (m < 10) {
         m = "0" + m;
       }
@@ -680,11 +693,17 @@ function setTime(seconds) {
     }
   }, 1000);
 }
+var audio = new Audio('./audio.mp3');
+function play() {
+  audio.currentTime = 0;
+  audio.play();
+  audio.volume = 0.02;
+}
 start_button.addEventListener('click', function () {
   time.innerHTML = "Time: 00:00";
   clearInterval(timerInterval);
-  for (var _i = 0; _i < fieldPiece.length; _i++) {
-    fieldPiece[_i].onclick = function () {
+  for (var _i2 = 0; _i2 < fieldPiece.length; _i2++) {
+    fieldPiece[_i2].onclick = function () {
       if (checkMove(parseInt(this.innerHTML))) {
         swap(this.innerHTML - 1);
         move_counter++;
@@ -708,21 +727,24 @@ start_button.addEventListener('click', function () {
     isPaused = false;
   }
   shuffle();
+  play();
 });
 stop_button.addEventListener('click', function () {
   if (stop_button.textContent == 'Stop') {
     stop_button.textContent = 'Resume';
     isPaused = true;
-    for (var _i2 = 0; _i2 < fieldPiece.length; _i2++) {
-      fieldPiece[_i2].onclick = function () {
+    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
+      fieldPiece[_i3].onclick = function () {
         return false;
       };
     }
+    audio.pause();
   } else {
     stop_button.textContent = 'Stop';
     isPaused = false;
-    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
-      fieldPiece[_i3].onclick = function () {
+    audio.play();
+    for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
+      fieldPiece[_i4].onclick = function () {
         if (checkMove(parseInt(this.innerHTML))) {
           swap(this.innerHTML - 1);
           move_counter++;
@@ -737,8 +759,8 @@ stop_button.addEventListener('click', function () {
   }
 });
 function shuffle() {
-  for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
-    fieldPiece[_i4].onclick = function () {
+  for (var _i5 = 0; _i5 < fieldPiece.length; _i5++) {
+    fieldPiece[_i5].onclick = function () {
       if (checkMove(parseInt(this.innerHTML))) {
         swap(this.innerHTML - 1);
         move_counter++;
@@ -750,7 +772,7 @@ function shuffle() {
       return;
     };
   }
-  for (var _i5 = 0; _i5 < 300; _i5++) {
+  for (var _i6 = 0; _i6 < 300; _i6++) {
     var rand = parseInt(Math.random() * 100) % 4;
     if (rand == 0) {
       var temp = up(spaceX, spaceY);
@@ -812,9 +834,9 @@ function up(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY > 0) {
-    for (var _i6 = 0; _i6 < fieldPiece.length; _i6++) {
-      if (parseInt(fieldPiece[_i6].style.top) + 100 == cordY && parseInt(fieldPiece[_i6].style.left) == cordX) {
-        return _i6;
+    for (var _i7 = 0; _i7 < fieldPiece.length; _i7++) {
+      if (parseInt(fieldPiece[_i7].style.top) + 100 == cordY && parseInt(fieldPiece[_i7].style.left) == cordX) {
+        return _i7;
       }
     }
   } else {
@@ -825,9 +847,9 @@ function down(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY < 300) {
-    for (var _i7 = 0; _i7 < fieldPiece.length; _i7++) {
-      if (parseInt(fieldPiece[_i7].style.top) - 100 == cordY && parseInt(fieldPiece[_i7].style.left) == cordX) {
-        return _i7;
+    for (var _i8 = 0; _i8 < fieldPiece.length; _i8++) {
+      if (parseInt(fieldPiece[_i8].style.top) - 100 == cordY && parseInt(fieldPiece[_i8].style.left) == cordX) {
+        return _i8;
       }
     }
   } else {
@@ -857,8 +879,8 @@ function checkMove(position) {
   }
 }
 function win(move_counter, seconds_counter) {
-  for (var _i8 = 0; _i8 < fieldPiece.length; _i8++) {
-    fieldPiece[_i8].onclick = function () {
+  for (var _i9 = 0; _i9 < fieldPiece.length; _i9++) {
+    fieldPiece[_i9].onclick = function () {
       return false;
     };
   }
@@ -882,11 +904,11 @@ var resDiv = document.createElement("div");
 resDiv.className = 'results';
 res_button.addEventListener('click', results);
 function results() {
-  resDiv.innerHTML = '';
+  resDiv.innerHTML = '<div>Results</div>';
   var results = JSON.parse(window.localStorage.getItem('result'));
   var i = 0;
   for (var key in results) {
-    if (i > 4) {
+    if (i > 9) {
       break;
     }
     var m = Math.floor(results[key].time / 60);
@@ -919,10 +941,10 @@ function saveData(moves, time) {
 }
 function finish() {
   var flag = true;
-  for (var _i9 = 0; _i9 < fieldPiece.length; _i9++) {
-    var top = parseInt(fieldPiece[_i9].style.top);
-    var _left = parseInt(fieldPiece[_i9].style.left);
-    if (_left != _i9 % 4 * 100 || top != parseInt(_i9 / 4) * 100) {
+  for (var _i10 = 0; _i10 < fieldPiece.length; _i10++) {
+    var top = parseInt(fieldPiece[_i10].style.top);
+    var _left = parseInt(fieldPiece[_i10].style.left);
+    if (_left != _i10 % 4 * 100 || top != parseInt(_i10 / 4) * 100) {
       flag = false;
       break;
     }
@@ -933,4 +955,4 @@ function finish() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleeb64b18969870c4fb24a.js.map
+//# sourceMappingURL=bundle9b06990e9e0e3504e59c.js.map
