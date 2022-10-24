@@ -651,17 +651,6 @@ for (var i = 0; i < fieldPiece.length; i++) {
   fieldPiece[i].style.left = i % 4 * 100 + 'px';
   fieldPiece[i].style.top = parseInt(i / 4) * 100 + 'px';
   fieldPiece[i].style.backgroundPosition = '-' + fieldPiece[i].style.left + ' ' + '-' + fieldPiece[i].style.top;
-  fieldPiece[i].onclick = function () {
-    if (checkMove(parseInt(this.innerHTML))) {
-      swap(this.innerHTML - 1);
-      move_counter++;
-      move_counter = setMove(move_counter);
-    }
-    if (finish()) {
-      win(move_counter, seconds_counter);
-    }
-    return;
-  };
 }
 ;
 var time = document.querySelector('.time'),
@@ -671,36 +660,29 @@ var time = document.querySelector('.time'),
   res_button = document.querySelector('.res_button');
 var spaceY = '300px',
   spaceX = '300px';
+var timerInterval;
+var isPaused = false;
 function setTime(seconds) {
-  var timer = setInterval(function () {
-    seconds++;
-    seconds_counter++;
-    var m = Math.floor(seconds / 60);
-    if (m < 10) {
-      m = "0" + m;
+  timerInterval = setInterval(function () {
+    if (!isPaused) {
+      seconds_counter++;
+      seconds = seconds_counter;
+      var m = Math.floor(seconds / 60);
+      console.log('1');
+      if (m < 10) {
+        m = "0" + m;
+      }
+      var s = seconds % 60;
+      if (s < 10) {
+        s = "0" + s;
+      }
+      time.innerHTML = "Time: ".concat(m, ":").concat(s);
     }
-    var s = seconds % 60;
-    if (s < 10) {
-      s = "0" + s;
-    }
-    time.innerHTML = "Time: ".concat(m, ":").concat(s);
   }, 1000);
-  stop_button.addEventListener('click', function () {
-    clearInterval(timer);
-  });
-  start_button.addEventListener('click', function () {
-    time.innerHTML = "Time: 00:00";
-    clearInterval(timer);
-    if (document.querySelector('.win')) {
-      document.querySelector('.win').remove();
-    }
-    setMove(0);
-    move_counter = 0;
-    setTime(0);
-    shuffle();
-  });
 }
-function shuffle() {
+start_button.addEventListener('click', function () {
+  time.innerHTML = "Time: 00:00";
+  clearInterval(timerInterval);
   for (var _i = 0; _i < fieldPiece.length; _i++) {
     fieldPiece[_i].onclick = function () {
       if (checkMove(parseInt(this.innerHTML))) {
@@ -714,7 +696,61 @@ function shuffle() {
       return;
     };
   }
-  for (var _i2 = 0; _i2 < 300; _i2++) {
+  move_counter = 0;
+  setMove(move_counter);
+  seconds_counter = 0;
+  setTime(seconds_counter);
+  if (document.querySelector('.win')) {
+    document.querySelector('.win').remove();
+  }
+  if (stop_button.textContent == 'Resume') {
+    stop_button.textContent = 'Stop';
+    isPaused = false;
+  }
+  shuffle();
+});
+stop_button.addEventListener('click', function () {
+  if (stop_button.textContent == 'Stop') {
+    stop_button.textContent = 'Resume';
+    isPaused = true;
+    for (var _i2 = 0; _i2 < fieldPiece.length; _i2++) {
+      fieldPiece[_i2].onclick = function () {
+        return false;
+      };
+    }
+  } else {
+    stop_button.textContent = 'Stop';
+    isPaused = false;
+    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
+      fieldPiece[_i3].onclick = function () {
+        if (checkMove(parseInt(this.innerHTML))) {
+          swap(this.innerHTML - 1);
+          move_counter++;
+          move_counter = setMove(move_counter);
+        }
+        if (finish()) {
+          win(move_counter, seconds_counter);
+        }
+        return;
+      };
+    }
+  }
+});
+function shuffle() {
+  for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
+    fieldPiece[_i4].onclick = function () {
+      if (checkMove(parseInt(this.innerHTML))) {
+        swap(this.innerHTML - 1);
+        move_counter++;
+        move_counter = setMove(move_counter);
+      }
+      if (finish()) {
+        win(move_counter, seconds_counter);
+      }
+      return;
+    };
+  }
+  for (var _i5 = 0; _i5 < 300; _i5++) {
     var rand = parseInt(Math.random() * 100) % 4;
     if (rand == 0) {
       var temp = up(spaceX, spaceY);
@@ -776,9 +812,9 @@ function up(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY > 0) {
-    for (var _i3 = 0; _i3 < fieldPiece.length; _i3++) {
-      if (parseInt(fieldPiece[_i3].style.top) + 100 == cordY && parseInt(fieldPiece[_i3].style.left) == cordX) {
-        return _i3;
+    for (var _i6 = 0; _i6 < fieldPiece.length; _i6++) {
+      if (parseInt(fieldPiece[_i6].style.top) + 100 == cordY && parseInt(fieldPiece[_i6].style.left) == cordX) {
+        return _i6;
       }
     }
   } else {
@@ -789,9 +825,9 @@ function down(x, y) {
   var cordX = parseInt(x);
   var cordY = parseInt(y);
   if (cordY < 300) {
-    for (var _i4 = 0; _i4 < fieldPiece.length; _i4++) {
-      if (parseInt(fieldPiece[_i4].style.top) - 100 == cordY && parseInt(fieldPiece[_i4].style.left) == cordX) {
-        return _i4;
+    for (var _i7 = 0; _i7 < fieldPiece.length; _i7++) {
+      if (parseInt(fieldPiece[_i7].style.top) - 100 == cordY && parseInt(fieldPiece[_i7].style.left) == cordX) {
+        return _i7;
       }
     }
   } else {
@@ -806,16 +842,6 @@ function swap(position) {
   fieldPiece[position].style.left = spaceX;
   spaceX = temp;
 }
-setTime(0);
-start_button.addEventListener('click', function () {
-  setTime(0);
-  move_counter = 0;
-  setMove(move_counter);
-  if (document.querySelector('.win')) {
-    document.querySelector('.win').remove();
-  }
-  shuffle();
-});
 function checkMove(position) {
   if (left(spaceX, spaceY) == position - 1) {
     return true;
@@ -831,11 +857,12 @@ function checkMove(position) {
   }
 }
 function win(move_counter, seconds_counter) {
-  for (var _i5 = 0; _i5 < fieldPiece.length; _i5++) {
-    fieldPiece[_i5].onclick = function () {
+  for (var _i8 = 0; _i8 < fieldPiece.length; _i8++) {
+    fieldPiece[_i8].onclick = function () {
       return false;
     };
   }
+  clearInterval(timerInterval);
   var m = Math.floor(seconds_counter / 60);
   if (m < 10) {
     m = "0" + m;
@@ -844,6 +871,7 @@ function win(move_counter, seconds_counter) {
   if (s < 10) {
     s = "0" + s;
   }
+  document.querySelector('.time').textContent = "Time: ".concat(m, ":").concat(s);
   winContainer.innerHTML = "   \n    Hooray! You solved the puzzle in ".concat(m, ":").concat(s, " and ").concat(move_counter, " moves!\n    ");
   document.body.appendChild(winContainer);
   save_button.addEventListener('click', function () {
@@ -872,7 +900,11 @@ function results() {
     resDiv.innerHTML += "\n            <div>\n                ".concat(i + 1, ". Time: ").concat(m, ":").concat(s, ", Moves: ").concat(results[key].moves, " \n            </div>\n        ");
     i++;
   }
-  document.body.appendChild(resDiv);
+  if (document.body.querySelector('.results')) {
+    document.body.querySelector('.results').remove();
+  } else {
+    document.body.appendChild(resDiv);
+  }
 }
 function saveData(moves, time) {
   var results = JSON.parse(window.localStorage.getItem('result'));
@@ -887,10 +919,10 @@ function saveData(moves, time) {
 }
 function finish() {
   var flag = true;
-  for (var _i6 = 0; _i6 < fieldPiece.length; _i6++) {
-    var top = parseInt(fieldPiece[_i6].style.top);
-    var _left = parseInt(fieldPiece[_i6].style.left);
-    if (_left != _i6 % 4 * 100 || top != parseInt(_i6 / 4) * 100) {
+  for (var _i9 = 0; _i9 < fieldPiece.length; _i9++) {
+    var top = parseInt(fieldPiece[_i9].style.top);
+    var _left = parseInt(fieldPiece[_i9].style.left);
+    if (_left != _i9 % 4 * 100 || top != parseInt(_i9 / 4) * 100) {
       flag = false;
       break;
     }
@@ -901,4 +933,4 @@ function finish() {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle448e81a0a406754e54ac.js.map
+//# sourceMappingURL=bundleeb64b18969870c4fb24a.js.map
