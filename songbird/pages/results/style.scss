@@ -7,4 +7,37 @@ body {
     text-align: left;
     background-color: #222;
 }
-    
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #303030;
+    border: 1px solid #555;
+
+    &-message {
+        text-align: center;
+    }
+
+    & img {
+        width: 300px;
+        margin: 0 auto;
+    }
+}
+
+.btn {
+    width: 90%;
+    margin: 0 auto;
+    text-decoration: none;
+    padding: 5px 0;
+    text-align: center;
+    background-color: #00bc8c;
+    border: 1px solid #444;
+    color: #fff !important;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
