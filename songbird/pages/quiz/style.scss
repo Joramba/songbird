@@ -61,6 +61,11 @@ body {
         border-radius: 10px;
         margin: 0;
     }
+
+
+    @media (max-width: 620px) {
+        flex-direction: column;
+    }
 }
 
 .list-group {
@@ -92,6 +97,11 @@ body {
 
     &-item:last-child {
         border: 0;
+    }
+
+
+    @media (max-width: 620px) {
+        margin-left: 0;
     }
 }
 
@@ -182,6 +192,38 @@ body {
             width: 700px;
             height: 4px;
             background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 0%, rgb(115, 115, 115) 0%, rgb(115, 115, 115) 100%);
+
+            @media (max-width: 1200px) {
+                width: 500px;
+            }
+
+            @media (max-width: 930px) {
+                width: 400px;
+            }
+
+            @media (max-width: 820px) {
+                width: 300px;
+            }
+
+            @media (max-width: 720px) {
+                width: 200px;
+            }
+
+            @media (max-width: 620px) {
+                width: 400px;
+            }
+
+            @media (max-width: 550px) {
+                width: 300px;
+            }
+
+            @media (max-width: 440px) {
+                width: 200px;
+            }
+ 
+            @media (max-width: 340px) {
+                width: 170px;
+            }
         }
 
         &-circle {
@@ -218,6 +260,10 @@ body {
     &-answers {
         width: 50%;
         padding: 0px;
+
+        @media (max-width: 620px) {
+            width: 100%;
+        }
     }
 
     &-info {
@@ -232,9 +278,17 @@ body {
             flex-direction: column;
             height: 277px;
         }
+
+        @media (max-width: 620px) {
+            width: 100%;
+            margin-bottom: 15px;
+        }
     }
 
-
+    @media (max-width: 620px) {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 .answers-group {

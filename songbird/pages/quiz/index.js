@@ -1,7 +1,7 @@
 import birdsData from "../../birdsData.js";
 
 const answers = document.querySelector('.answers-group');
-
+    
 function getAnswers(i) {
     birdsData[i].forEach(item => {
         answers.innerHTML += `
