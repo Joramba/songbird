@@ -1,0 +1,221 @@
+body {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  background-color: #222; }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 15px; }
+  .header-top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    justify-content: space-between; }
+    .header-top .logo {
+      background-image: url("../../assets/images/songbird.svg");
+      width: 200px;
+      height: 55px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0; }
+    .header-top h4 {
+      margin: 0; }
+      .header-top h4 .score {
+        line-height: 55px; }
+
+.main {
+  margin: 0 auto;
+  padding: 1rem;
+  margin-bottom: 25px; }
+
+.random-bird {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: #303030;
+  padding: 1rem; }
+  .random-bird img {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+    margin: 0; }
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0 0 0 40px;
+  padding: 0.25rem;
+  width: 100%; }
+  .list-group-item {
+    list-style: none;
+    border: 1px solid #555; }
+    .list-group-item h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.2; }
+  .list-group-item:first-child {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 0; }
+  .list-group-item:last-child {
+    border: 0; }
+
+@media (min-width: 1200px) {
+  .main,
+  .header {
+    max-width: 1140px; } }
+
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0 0 25px 0;
+  border-radius: 5px;
+  overflow: hidden; }
+  .pagination .page-item {
+    flex: auto;
+    text-align: center; }
+    .pagination .page-item .page-link {
+      background-color: #008966;
+      border-color: #007c5d;
+      position: relative;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      line-height: 1.25;
+      color: white;
+      text-decoration: none;
+      border: 0 solid transparent; }
+    .pagination .page-item.active .page-link {
+      background-color: #00bc8c;
+      border-color: #007c5d; }
+
+.audio-player {
+  margin: 15px 0 0 0; }
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 20px; }
+  .controls .play-button {
+    position: relative;
+    -webkit-transition: .2s;
+    transition: .2s;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00bc8c;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer; }
+    .controls .play-button svg {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transition: .2s;
+      width: 18px;
+      height: 18px;
+      color: #54b1c1;
+      overflow: hidden;
+      vertical-align: middle; }
+  .controls .timebar {
+    display: flex;
+    position: relative;
+    flex-direction: column; }
+    .controls .timebar-bar {
+      width: 700px;
+      height: 4px;
+      background: linear-gradient(to right, #00bc8c 0%, #3d858c 0%, #737373 0%, #737373 100%); }
+    .controls .timebar-circle {
+      background-color: grey;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      -webkit-transform: translate(-50%, calc(-50% + 2px));
+      transform: translate(-50%, calc(-50% + 2px));
+      box-shadow: 0 0 4px 0 black;
+      cursor: pointer; }
+    .controls .timebar-info {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #d3d3d3;
+      display: flex;
+      justify-content: space-between; }
+
+.quiz {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 30px;
+  width: 100%; }
+  .quiz-answers {
+    width: 50%;
+    padding: 0px; }
+  .quiz-info {
+    width: 50%;
+    margin: 15px 0 0 0; }
+    .quiz-info .bird-details {
+      display: flex;
+      padding: 1rem;
+      border: 1px solid #444;
+      flex-direction: column;
+      height: 277px; }
+
+.answers-group {
+  padding: 0; }
+  .answers-group-item {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.85rem 1.25rem;
+    background-color: #303030;
+    border: 1px solid #555; }
+
+.item-list {
+  width: 100%; }
+
+.li-btn {
+  background-color: #444;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  -webkit-transition: .1s;
+  transition: .1s; }
+
+.card {
+  background-color: #303030; }
+
+.btn {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #303030;
+  border: 1px solid #444;
+  color: #fff !important;
+  cursor: auto;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
+.btn-next {
+  background-color: #00bc8c;
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */
