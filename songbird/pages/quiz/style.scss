@@ -8,6 +8,10 @@ body {
     background-color: #222;
 }
 
+h4 {
+    margin: 0;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -60,6 +64,7 @@ body {
         height: 155px;
         border-radius: 10px;
         margin: 0;
+        object-fit: cover;
     }
 
 
@@ -136,6 +141,7 @@ body {
             color: white;
             text-decoration: none;
             border: 0 solid transparent;
+            cursor: auto;
         }
 
         &.active .page-link {
@@ -220,7 +226,7 @@ body {
             @media (max-width: 440px) {
                 width: 200px;
             }
- 
+
             @media (max-width: 340px) {
                 width: 170px;
             }
@@ -270,15 +276,6 @@ body {
         width: 50%;
         margin: 15px 0 0 0;
 
-
-        & .bird-details {
-            display: flex;
-            padding: 1rem;
-            border: 1px solid #444;
-            flex-direction: column;
-            height: 277px;
-        }
-
         @media (max-width: 620px) {
             width: 100%;
             margin-bottom: 15px;
@@ -320,8 +317,60 @@ body {
 
 .card {
     background-color: #303030;
+    height: 277px;
+    padding: 1rem;
+    border: 1px solid #444;
+    flex-direction: column;
+
+    &-bar {
+        width: 200px;
+        height: 4px;
+        background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 0%, rgb(115, 115, 115) 0%, rgb(115, 115, 115) 100%);
+    }
+
+    &-body {
+        display: flex;
+        padding: 0;
+        flex-direction: row;
+        min-height: 173px;
+
+        & img {
+            width: 200px;
+            height: 155px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 2rem;
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-name {
+            font-size: 28px;
+            border-bottom: 1px solid #555;
+            margin-bottom: 10px;
+        }
+
+        &-species {
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+    }
 }
 
+.error .li-btn {
+    background-color: #d62c1a;
+}
+
+.success .li-btn {
+    background-color: #00bc8c;
+}
+
+.instruction {
+    flex-direction: column;
+}
 
 .btn {
     width: 100%;

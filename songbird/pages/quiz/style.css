@@ -7,6 +7,9 @@ body {
   text-align: left;
   background-color: #222; }
 
+h4 {
+  margin: 0; }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -46,7 +49,8 @@ body {
     width: 200px;
     height: 155px;
     border-radius: 10px;
-    margin: 0; }
+    margin: 0;
+    object-fit: cover; }
   @media (max-width: 620px) {
     .random-bird {
       flex-direction: column; } }
@@ -103,7 +107,8 @@ body {
       line-height: 1.25;
       color: white;
       text-decoration: none;
-      border: 0 solid transparent; }
+      border: 0 solid transparent;
+      cursor: auto; }
     .pagination .page-item.active .page-link {
       background-color: #00bc8c;
       border-color: #007c5d; }
@@ -203,12 +208,6 @@ body {
   .quiz-info {
     width: 50%;
     margin: 15px 0 0 0; }
-    .quiz-info .bird-details {
-      display: flex;
-      padding: 1rem;
-      border: 1px solid #444;
-      flex-direction: column;
-      height: 277px; }
     @media (max-width: 620px) {
       .quiz-info {
         width: 100%;
@@ -241,7 +240,45 @@ body {
   transition: .1s; }
 
 .card {
-  background-color: #303030; }
+  background-color: #303030;
+  height: 277px;
+  padding: 1rem;
+  border: 1px solid #444;
+  flex-direction: column; }
+  .card-bar {
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(to right, #00bc8c 0%, #3d858c 0%, #737373 0%, #737373 100%); }
+  .card-body {
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    min-height: 173px; }
+    .card-body img {
+      width: 200px;
+      height: 155px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 2rem; }
+    .card-body-info {
+      display: flex;
+      flex-direction: column; }
+    .card-body-name {
+      font-size: 28px;
+      border-bottom: 1px solid #555;
+      margin-bottom: 10px; }
+    .card-body-species {
+      border-bottom: 1px solid #555;
+      padding-bottom: 10px; }
+
+.error .li-btn {
+  background-color: #d62c1a; }
+
+.success .li-btn {
+  background-color: #00bc8c; }
+
+.instruction {
+  flex-direction: column; }
 
 .btn {
   width: 100%;
