@@ -1,19 +1,25 @@
 import birdsData from "../../birdsData.js";
 
 const answers = document.querySelector('.answers-group'),
+    pageItem = document.querySelectorAll('.page-item'),
     instruction = document.querySelector('.instruction'),
     cardBody = document.querySelector('.card-body'),
     cardDescription = document.querySelector('.card-description'),
     score = document.querySelector('.score');
 
 let winBird = randomBird(0),
-    sum = 0;
-
+    sum = 0,
+    i = 0;
 console.log(winBird);
 
 instruction.style.display = 'flex';
 cardBody.style.display = 'none';
 cardDescription.style.display = 'none';
+
+function slides(i) {
+    winBird = randomBird(0);
+
+}
 
 
 function randomBird(i) {
@@ -25,10 +31,6 @@ let s = 5;
 
 let cardFunction = (e) => {
     const answersItems = document.querySelectorAll('.answers-group-item');
-
-    let i = 0;
-
-
 
     instruction.style.display = 'none';
     cardBody.style.display = 'flex';
@@ -77,10 +79,10 @@ let cardFunction = (e) => {
                  ${bird.description}
             `;
 
-            if (winBird.name == bird.name) {   
+            if (winBird.name == bird.name) {
                 sum += s;
                 score.textContent = sum;
-                
+
                 e.target.classList.add('success')
                 answersItems.forEach(elem => {
                     elem.removeEventListener('click', cardFunction)
@@ -120,6 +122,13 @@ let cardFunction = (e) => {
                         </ul>
                     </div>
                 `;
+
+                document.querySelector('.btn').classList.add('btn-next');
+
+                document.querySelector('.btn').addEventListener('click', () => {
+                    getAnswers(++i);
+                })
+
             } else {
                 e.target.classList.add('error');
                 s--;
@@ -131,6 +140,17 @@ let cardFunction = (e) => {
 }
 
 function getAnswers(i) {
+    pageItem.forEach(item => {
+        item.classList.remove('active');
+    })
+
+    if (i <= 5) {
+        pageItem[i].classList.add('active');
+    } else {
+        window.location.href = '../results/index.html';
+    }
+
+    answers.innerHTML = ``;
     birdsData[i].forEach(item => {
         answers.innerHTML += `
         <li class="answers-group-item">
@@ -144,10 +164,10 @@ function getAnswers(i) {
     answersItems.forEach(item => {
         item.addEventListener('click', cardFunction)
     })
-
 }
 
-getAnswers(0);
+
+getAnswers(i);
 
 
 
