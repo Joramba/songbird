@@ -18,6 +18,11 @@ instruction.style.display = 'flex';
 cardBody.style.display = 'none';
 cardDescription.style.display = 'none';
 
+const winSound = new Audio('../../assets/sound/winSound.mp3');
+const loseSound = new Audio('../../assets/sound/loseSound.mp3');
+
+winSound.volume = 0.03;
+loseSound.volume = 0.03;
 
 function randomBird(i) {
     return birdsData[i][Math.floor(Math.random() * (5 - 1 + 1)) + 1];
@@ -139,6 +144,9 @@ let cardFunction = (e) => {
                 sum += s;
                 score.textContent = sum;
 
+                winSound.currentTime = 0
+                winSound.play();
+
                 e.target.classList.add('success')
                 answersItems.forEach(elem => {
                     elem.removeEventListener('click', cardFunction)
@@ -187,6 +195,10 @@ let cardFunction = (e) => {
                 e.target.classList.add('error');
                 s--;
                 e.target.removeEventListener('click', cardFunction);
+                winSound.pause();
+                loseSound.currentTime = 0;
+                loseSound.play();
+
                 console.log(s);
             }
         }

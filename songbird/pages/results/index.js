@@ -1,23 +1,21 @@
-const box = document.querySelector('.box');
+const box = document.querySelector('.game-over-box');
+const score = document.querySelector('.score');
+score.textContent = localStorage.getItem('score');
 
 if (localStorage.getItem('score') == 30) {
     box.innerHTML = `
-    <div class="box-message">
-        Congrats, you got the maximum score :))
-    </div>
-    <img src="../../assets/images/result-win.png" alt="Meme result win">
+    <h1>Поздравляем!</h1>
+    <p>Вы прошли викторину и набрали максимальное количество баллов, а именно 30/30</p>
     <a href='../quiz/index.html' class="btn">
-        Try Again
+        Попробовать еще раз
     </a>
     `;
 } else {
     box.innerHTML = `
-    <div class="box-message">
-        You have not scored the maximum number of points ):
-    </div>
-    <img src="../../assets/images/result-lose.png" alt="Meme result lose">
+    <h1>Поздравляем!</h1>
+    <p>Вы прошли викторину и набрали ${localStorage.getItem('score')} из 30 возможных баллов</p>
     <a href='../quiz/index.html' class="btn">
-        Try Again
+        Попробовать еще раз
     </a>
     `;
 }
