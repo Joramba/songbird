@@ -13,6 +13,8 @@ let winBird = randomBird(0),
     sum = 0,
     i = 0;
 
+// let audio = new Audio(winBird.audio);
+
 
 instruction.style.display = 'flex';
 cardBody.style.display = 'none';
@@ -40,16 +42,21 @@ const nextSlide = () => {
         window.location.href = '../results/index.html';
     }
 
-
+    winBird = randomBird(i);
     createRandomCard();
     instruction.style.display = 'flex';
     cardBody.style.display = 'none';
     cardDescription.style.display = 'none';
-    winBird = randomBird(i);
+
     getAnswers(i);
 }
 
 function createRandomCard() {
+    // console.log(audio);
+
+    // console.log(Math.floor(audio.duration,1));
+
+
     randomBirdCard.innerHTML = `
     <img src="../../assets/images/random-bird.jpg" alt="Random Bird">
             <div>
@@ -59,6 +66,7 @@ function createRandomCard() {
                     </li>
                     <li class="list-group-item">
                         <div class="audio-player">
+                            <audio class="audio" src="${winBird.audio}" preload="metadata"></audio>
                             <div class="controls">
                                 <div class="play-button">
                                     <svg viewBox="-200 0 1200 1000">
@@ -75,8 +83,8 @@ function createRandomCard() {
 
                                     </div>
                                     <div class="timebar-info">
-                                        <div>00:00</div>
-                                        <div>02:03</div>
+                                        <div class="time-start">00:00</div>
+                                        <div class="time-end"></div>
                                     </div>
                                 </div>
                             </div>
@@ -85,6 +93,41 @@ function createRandomCard() {
                 </ul>
             </div>
     `;
+
+    const audio = document.querySelector('.audio');
+    const playBtn = document.querySelector('.play-button');
+
+    playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playBtn.innerHTML = `
+            <svg viewBox="0 0 47.607 47.607"><path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path></svg>
+            `;
+        } else {
+            audio.pause();
+            playBtn.innerHTML = `                                    
+            <svg viewBox="-200 0 1200 1000">
+                <path fill="#00bc8c"
+                    d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z">
+                </path>
+            </svg>`;
+        }
+    })
+
+    audio.onloadedmetadata = function () {
+        let m = Math.floor(audio.duration / 60, 1);
+        if (m < 10) {
+            m = `0${m}`
+        }
+
+        let s = Math.round(audio.duration % 60);
+        if (s < 10) {
+            s = `0${s}`
+        }
+
+        document.querySelector('.time-end').textContent = `${m}:${s}`
+    };
+
 }
 
 createRandomCard();
@@ -92,7 +135,6 @@ createRandomCard();
 
 let cardFunction = (e) => {
     const answersItems = document.querySelectorAll('.answers-group-item');
-
     instruction.style.display = 'none';
     cardBody.style.display = 'flex';
     cardDescription.style.display = 'flex';
@@ -110,6 +152,7 @@ let cardFunction = (e) => {
                     </div>
                     <div class="card-body-audio">
                         <div class="audio-player">
+                            <audio class="audio" src="${bird.audio}" preload="metadata"></audio>
                             <div class="controls">
                                 <div class="play-button">
                                     <svg viewBox="-200 0 1200 1000">
@@ -126,8 +169,8 @@ let cardFunction = (e) => {
 
                                     </div>
                                     <div class="timebar-info">
-                                        <div>00:00</div>
-                                        <div>02:03</div>
+                                        <div class="time-start">00:00</div>
+                                        <div class="time-end"></div>
                                     </div>
                                 </div>
                             </div>
@@ -135,6 +178,40 @@ let cardFunction = (e) => {
                     </div>
                 </div>
                 `;
+            const audio = document.querySelectorAll('.audio')[1];
+            const playBtn = document.querySelectorAll('.play-button')[1];
+            console.log(playBtn);
+
+            playBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.innerHTML = `
+                            <svg viewBox="0 0 47.607 47.607"><path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path></svg>
+                            `;
+                } else {
+                    audio.pause();
+                    playBtn.innerHTML = `                                    
+                            <svg viewBox="-200 0 1200 1000">
+                                <path fill="#00bc8c"
+                                    d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z">
+                                </path>
+                            </svg>`;
+                }
+            })
+
+            audio.onloadedmetadata = function () {
+                let m = Math.floor(audio.duration / 60, 1);
+                if (m < 10) {
+                    m = `0${m}`
+                }
+
+                let s = Math.round(audio.duration % 60);
+                if (s < 10) {
+                    s = `0${s}`
+                }
+
+                document.querySelectorAll('.time-end')[1].textContent = `${m}:${s}`
+            };
 
             cardDescription.innerHTML = `
                  ${bird.description}
@@ -153,40 +230,77 @@ let cardFunction = (e) => {
                 })
 
                 randomBirdCard.innerHTML = `
-                    <img src=${bird.image} alt="Random Bird">
-                    <div>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <h3>${bird.name}</h3>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="audio-player">
-                                    <div class="controls">
-                                        <div class="play-button">
-                                            <svg viewBox="-200 0 1200 1000">
-                                                <path fill="#00bc8c"
-                                                    d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z">
-                                                </path>
-                                            </svg>
+                <img src="${bird.image}" alt="Random Bird">
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h3>${bird.name}</h3>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="audio-player">
+                                <audio class="audio" src="${winBird.audio}" preload="metadata"></audio>
+                                <div class="controls">
+                                    <div class="play-button">
+                                        <svg viewBox="-200 0 1200 1000">
+                                            <path fill="#00bc8c"
+                                                d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="timebar">
+                                        <div class="timebar-bar">
+    
                                         </div>
-                                        <div class="timebar">
-                                            <div class="timebar-bar">
-
-                                            </div>
-                                            <div class="timebar-circle">
-
-                                            </div>
-                                            <div class="timebar-info">
-                                                <div>00:00</div>
-                                                <div>02:03</div>
-                                            </div>
+                                        <div class="timebar-circle">
+    
+                                        </div>
+                                        <div class="timebar-info">
+                                            <div class="time-start">00:00</div>
+                                            <div class="time-end"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 `;
+
+                const audio = document.querySelectorAll('.audio')[0];
+                const playBtn = document.querySelectorAll('.play-button')[0];
+                console.log(playBtn);
+    
+                playBtn.addEventListener('click', () => {
+                    if (audio.paused) {
+                        audio.play();
+                        playBtn.innerHTML = `
+                                <svg viewBox="0 0 47.607 47.607"><path fill="#00bc8c" d="M17.991 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345zM42.877 40.976a6.631 6.631 0 01-13.262 0V6.631a6.631 6.631 0 0113.262 0v34.345z"></path></svg>
+                                `;
+                    } else {
+                        audio.pause();
+                        playBtn.innerHTML = `                                    
+                                <svg viewBox="-200 0 1200 1000">
+                                    <path fill="#00bc8c"
+                                        d="M96.51 11.97c-31.23 8.05-53.26 32.76-63.42 71.27-3.45 12.84-3.64 29.7-3.64 416.71s.19 403.87 3.64 416.71c16.09 60.74 61.69 86.03 120.9 67.25 9-2.87 53.65-25.1 116.49-58.24 56.14-29.51 221.29-116.3 367.28-192.93 145.99-76.64 271.29-143.31 278.38-148.1 39.28-25.68 59.59-63.04 53.26-97.52-4.79-26.63-24.33-53.07-52.88-71.65C892 399.37 172.58 22.32 154.95 16.38c-18.97-6.33-43.3-8.24-58.44-4.41z">
+                                    </path>
+                                </svg>`;
+                    }
+                })
+    
+                audio.onloadedmetadata = function () {
+                    let m = Math.floor(audio.duration / 60, 1);
+                    if (m < 10) {
+                        m = `0${m}`
+                    }
+    
+                    let s = Math.round(audio.duration % 60);
+                    if (s < 10) {
+                        s = `0${s}`
+                    }
+                    document.querySelectorAll('.time-end')[0].textContent = `${m}:${s}`
+                    document.querySelectorAll('.time-end')[1].textContent = `${m}:${s}`
+                };
+
 
                 nextLvlBtn.classList.add('btn-next');
 
@@ -240,7 +354,3 @@ function getAnswers(i) {
 
 
 getAnswers(i);
-
-
-
-
