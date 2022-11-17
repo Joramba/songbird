@@ -146,9 +146,12 @@ h4 {
   .controls .timebar {
     display: flex;
     position: relative;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 700px; }
+    .controls .timebar_card {
+      position: relative; }
     .controls .timebar-bar {
-      width: 700px;
+      width: 100%;
       height: 4px;
       background: linear-gradient(to right, #00bc8c 0%, #3d858c 0%, #737373 0%, #737373 100%); }
       @media (max-width: 1200px) {
@@ -192,6 +195,18 @@ h4 {
       color: #d3d3d3;
       display: flex;
       justify-content: space-between; }
+
+.card-circle {
+  background-color: grey;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate(-50%, calc(-50% + 2px));
+  transform: translate(-50%, calc(-50% + 2px));
+  box-shadow: 0 0 4px 0 black;
+  cursor: pointer; }
 
 .quiz {
   display: flex;
