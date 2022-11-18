@@ -1,7 +1,3 @@
-const box = document.querySelector('.game-over-box');
-const score = document.querySelector('.score');
-score.textContent = localStorage.getItem('score');
-
 if (localStorage.getItem('language') == 'ru') {
     document.querySelector('.header').innerHTML = `
     <div class="header-top">
@@ -39,6 +35,10 @@ if (localStorage.getItem('language') == 'ru') {
     </ul>
     `;
 }
+
+const box = document.querySelector('.game-over-box');
+const score = document.querySelector('.score');
+score.textContent = localStorage.getItem('score');
 
 if (localStorage.getItem('score') == 30) {
     if (localStorage.getItem('language') == 'ru') {
