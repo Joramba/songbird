@@ -1,6 +1,58 @@
 import birdsDataRu from "../../birdsDataRu.js";
 import birdsDataEn from "../../birdDataEn.js"
 
+if (localStorage.getItem('language') == 'ru') {
+    document.querySelector('.header').innerHTML = `
+    <div class="header-top">
+        <a href="../main/index.html" class="logo"><a></a></a>
+        <h4>
+            Счет:
+            <span class="score">0</span>
+        </h4>
+    </div>
+    <ul class="pagination">
+        <li class="page-item"><a href="#!" class="page-link">Разминка</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Воробьиные</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Лесные птицы</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Певчие птицы</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Хищные птицы</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Морские птицы</a></li>
+    </ul>
+    `;
+
+    document.querySelector('.instruction').innerHTML = `
+        <span>Послушайте плеер.</span>
+        <span>Выберите птицу из списка.</span>
+    `;
+
+    document.querySelector('.btn').textContent = 'Следующий Уровень';
+} else {
+    document.querySelector('.header').innerHTML = `
+    <div class="header-top">
+        <a href="../main/index.html" class="logo"><a></a></a>
+        <h4>
+            Score:
+            <span class="score">0</span>
+        </h4>
+    </div>
+    <ul class="pagination">
+        <li class="page-item"><a href="#!" class="page-link">Warmup</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Passerines</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Forest Birds</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Songbirds</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Predator birds</a></li>
+        <li class="page-item"><a href="#!" class="page-link">Sea birds</a></li>
+    </ul>
+    `;
+
+    document.querySelector('.instruction').innerHTML = `
+        <span>Listen to the player.</span>
+        <span>Select a bird from the list.</span>
+    `;
+
+    document.querySelector('.btn').textContent = 'Next Level';
+}
+
 const answers = document.querySelector('.answers-group'),
     pageItem = document.querySelectorAll('.page-item'),
     instruction = document.querySelector('.instruction'),
@@ -14,7 +66,6 @@ let winBird = randomBird(0),
     sum = 0,
     i = 0;
 
-// let audio = new Audio(winBird.audio);
 
 
 instruction.style.display = 'flex';
@@ -28,7 +79,10 @@ winSound.volume = 0.03;
 loseSound.volume = 0.03;
 
 function randomBird(i) {
-    return birdsDataRu[i][Math.floor(Math.random() * (5 - 1 + 1)) + 1];
+    if (localStorage.getItem('language') == 'ru') {
+        return birdsDataRu[i][Math.floor(Math.random() * (5 - 1 + 1)) + 1];
+    }
+    return birdsDataEn[i][Math.floor(Math.random() * (5 - 1 + 1)) + 1];
 }
 
 let s = 5;
@@ -148,12 +202,19 @@ createRandomCard();
 
 
 let cardFunction = (e) => {
+    let birds;
     const answersItems = document.querySelectorAll('.answers-group-item');
     instruction.style.display = 'none';
     cardBody.style.display = 'flex';
     cardDescription.style.display = 'flex';
+    
+    if (localStorage.getItem('language') == 'ru') {
+        birds = birdsDataRu[i];
+    }else {
+        birds = birdsDataEn[i];
+    }
 
-    birdsDataRu[i].forEach(bird => {
+    birds.forEach(bird => {
         if (bird.name == e.target.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim()) {
             cardBody.innerHTML = `
                 <img src=${bird.image} alt="Bird">
@@ -304,7 +365,7 @@ let cardFunction = (e) => {
                 const playBtn = document.querySelectorAll('.play-button')[0];
                 const timebar = document.querySelector('.timebar-bar');
                 const timebarCircle = document.querySelector('.timebar-circle');
-            
+
                 playBtn.addEventListener('click', () => {
                     if (audio.paused) {
                         audio.play();
@@ -321,21 +382,21 @@ let cardFunction = (e) => {
                         </svg>`;
                     }
                 })
-            
+
                 audio.onloadedmetadata = function () {
                     let m = Math.floor(audio.duration / 60, 1);
                     if (m < 10) {
                         m = `0${m}`
                     }
-            
+
                     let s = Math.round(audio.duration % 60);
                     if (s < 10) {
                         s = `0${s}`
                     }
-            
+
                     document.querySelector('.time-end').textContent = `${m}:${s}`
                 };
-            
+
                 timebar.addEventListener("click", (e) => {
                     const timelineWidth = window.getComputedStyle(timebar).width;
                     const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
@@ -344,15 +405,15 @@ let cardFunction = (e) => {
                     timebarCircle.style.left = progress;
                     timebar.style.background = `linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) ${progress}, rgb(115, 115, 115) ${progress}, rgb(115, 115, 115) 100%)`;
                 }, false);
-            
+
                 let progress;
-            
+
                 setInterval(() => {
                     progress = audio.currentTime / audio.duration * 100 + "%";
                     timebarCircle.style.left = progress;
                     timebar.style.background = `linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) ${progress}, rgb(115, 115, 115) ${progress}, rgb(115, 115, 115) 100%)`;
                 }, 500);
-                
+
                 nextLvlBtn.classList.add('btn-next');
 
                 nextLvlBtn.addEventListener('click', nextSlide);
@@ -384,18 +445,29 @@ function getAnswers(i) {
     nextLvlBtn.removeEventListener('click', nextSlide);
 
     s = 5;
-    console.log(sum);
     console.log(winBird);
 
     answers.innerHTML = ``;
-    birdsDataRu[i].forEach(item => {
-        answers.innerHTML += `
-        <li class="answers-group-item">
-            <span class="li-btn"></span>
-            ${item.name}
-        </li>
-        `;
-    })
+
+    if (localStorage.getItem('language') == 'ru') {
+        birdsDataRu[i].forEach(item => {
+            answers.innerHTML += `
+            <li class="answers-group-item">
+                <span class="li-btn"></span>    
+                ${item.name}
+            </li>
+            `;
+        })
+    } else {
+        birdsDataEn[i].forEach(item => {
+            answers.innerHTML += `
+            <li class="answers-group-item">
+                <span class="li-btn"></span>
+                ${item.name}
+            </li>
+            `;
+        })
+    }
 
     const answersItems = document.querySelectorAll('.answers-group-item');
     answersItems.forEach(item => {
