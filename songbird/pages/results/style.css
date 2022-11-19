@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 1074px;
+  max-width: 1074px;
   margin: 0 auto;
   padding: 4rem 2rem;
   background-color: #303030;
@@ -22,14 +22,35 @@ body {
     font-size: 4.5rem;
     font-weight: 300;
     line-height: 1.2; }
+    @media (max-width: 620px) {
+      .game-over-box h1 {
+        font-size: 3.5rem; } }
+    @media (max-width: 480px) {
+      .game-over-box h1 {
+        font-size: 2.5rem; } }
+    @media (max-width: 420px) {
+      .game-over-box h1 {
+        font-size: 2rem; } }
+    @media (max-width: 350px) {
+      .game-over-box h1 {
+        font-size: 1.5rem; } }
   .game-over-box p {
     text-align: center;
     margin: 0 0 100px 0; }
+    @media (max-width: 480px) {
+      .game-over-box p {
+        font-size: 0.9rem; } }
   .game-over-box-message {
     text-align: center; }
   .game-over-box img {
     width: 300px;
     margin: 0 auto; }
+  @media (max-width: 960px) {
+    .game-over-box {
+      padding-bottom: 1.5rem; } }
+  @media (max-width: 720px) {
+    .game-over-box {
+      padding-bottom: 1.0rem; } }
 
 h4 {
   margin: 0; }
@@ -72,9 +93,16 @@ h4 {
   margin: 0 0 25px 0;
   border-radius: 5px;
   overflow: hidden; }
+  @media (max-width: 420px) {
+    .pagination {
+      flex-direction: column; } }
   .pagination .page-item {
     flex: auto;
-    text-align: center; }
+    text-align: center;
+    width: 50%; }
+    @media (max-width: 420px) {
+      .pagination .page-item {
+        width: 100%; } }
     .pagination .page-item .page-link {
       background-color: #008966;
       border-color: #007c5d;
@@ -89,6 +117,9 @@ h4 {
     .pagination .page-item.active .page-link {
       background-color: #00bc8c;
       border-color: #007c5d; }
+    .pagination .page-item:hover .page-link {
+      cursor: pointer;
+      background-color: #00bc8c; }
 
 .btn {
   text-decoration: none;
@@ -100,6 +131,9 @@ h4 {
   transition: .3s;
   padding: 15px;
   margin: 25px 0; }
+  @media (max-width: 620px) {
+    .btn {
+      padding: 10px; } }
 
 .btn:hover {
   background-color: #00efb2; }

@@ -8,12 +8,8 @@ if (localStorage.getItem('language') == 'ru') {
         </h4>
     </div>
     <ul class="pagination">
-        <li class="page-item"><a href="#!" class="page-link">Разминка</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Воробьиные</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Лесные птицы</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Певчие птицы</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Хищные птицы</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Морские птицы</a></li>
+        <li class="page-item"><a href="../main/index.html" class="page-link">Стартовая страница</a></li>
+        <li class="page-item"><a href="../quiz/index.html" class="page-link">Викторина</a></li>
     </ul>
     `;
 } else {
@@ -26,12 +22,8 @@ if (localStorage.getItem('language') == 'ru') {
         </h4>
     </div>
     <ul class="pagination">
-        <li class="page-item"><a href="#!" class="page-link">Warmup</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Passerines</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Forest Birds</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Songbirds</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Predator birds</a></li>
-        <li class="page-item"><a href="#!" class="page-link">Sea birds</a></li>
+        <li class="page-item"><a href="../main/index.html" class="page-link">Start Page</a></li>
+        <li class="page-item"><a href="../quiz/index.html" class="page-link">Quiz</a></li>
     </ul>
     `;
 }

@@ -6,21 +6,14 @@ body {
     color: #fff;
     text-align: left;
     background-color: #222;
+    overflow: hidden;
 }
 
 .main,
 .header {
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
+    margin: 0 auto;
 }
 
-.main {
-    margin: 0 auto;
-    padding: 1rem;
-    margin-bottom: 25px;
-    background-color: #303030;
-}
 
 h4 {
     margin: 0;
@@ -31,6 +24,7 @@ h4 {
     flex-direction: column;
     margin: 0 auto;
     padding-top: 15px;
+    max-width: 1140px;
 
     &-top {
         display: flex;
@@ -70,9 +64,19 @@ h4 {
     border-radius: 5px;
     overflow: hidden;
 
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
     & .page-item-main {
         flex: auto;
         text-align: center;
+        width: 50%;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
 
         & .page-link {
             background-color: #008966;
@@ -104,8 +108,10 @@ h4 {
 
 
 .main {
+    margin: 0 auto 25px;
+    background-color: #303030;
     position: relative;
-    width: 1920px;
+    max-width: 1140px;
 
     &-container {
         display: flex;
@@ -124,6 +130,19 @@ h4 {
         & h1 {
             margin: 0 0 20px 0;
             padding: 0;
+
+            @media (max-width: 690px) {
+                font-size: 1.5em;
+            }
+
+            @media (max-width: 535px) {
+                font-size: 1em;
+            }
+
+            @media (max-width: 380px) {
+                font-size: 0.8em;
+                margin-bottom: 10px;
+            }
         }
     }
 }
@@ -134,7 +153,6 @@ h4 {
     display: inline-block;
     width: 5rem;
     height: 2.5rem;
-    margin-bottom: 30px;
 }
 
 .toggle input {
@@ -180,19 +198,63 @@ input:checked+.roundbutton:before {
 .language {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
     margin-bottom: 30px;
+
+    @media (max-width: 600px) {
+        margin-bottom: 15px;
+    }
+
+    & span {
+        @media (max-width: 600px) {
+            font-size: 22px;
+        }
+
+
+        @media (max-width: 535px) {
+            font-size: 16px;
+        }
+    }
 }
 
 
 .text {
     margin-bottom: 10px;
     font-size: 1.5rem;
+    text-align: center;
+
+    @media (max-width: 690px) {
+        font-size: 1em;
+    }
+
+    @media (max-width: 535px) {
+        font-size: 0.7em;
+    }
+
+    @media (max-width: 420px) {
+        font-size: 0.6em;
+    }
+
+    @media (max-width: 380px) {
+        font-size: 0.5em;
+    }
 
     &-language {
         margin-bottom: 40px;
         font-size: 1.5rem;
+
+        @media (max-width: 690px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 380px) {
+            margin-bottom: 15px;
+            font-size: 1.0rem;
+        }
     }
+
+
 }
 
 
